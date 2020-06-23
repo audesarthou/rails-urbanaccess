@@ -1,0 +1,2 @@
+class TravelTip < ApplicationRecord
+end
