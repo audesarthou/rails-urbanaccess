@@ -1,7 +1,16 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
+
+  <div id="research">
+    <form id="form-search" action="">
+      <input type="text" id="search" name="" placeholder="recherche">
+      <i class="fas fa-search" id="bt-search"></i>
+      <i class="fas fa-search" id="bt-close"></i>
+    </form>
+  </div>
+
+  <%= link_to root_path , class: "navbar-brand" do %>
+    <%= image_tag "logo.svg", alt: "logo" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
