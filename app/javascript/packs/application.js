@@ -33,6 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
+// Ajout de la barre de recherche qui se referme
 function setSearch(oEvent){
   console.log(oEvent);
   oEvent.preventDefault();
