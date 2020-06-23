@@ -32,3 +32,34 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+function setSearch(oEvent){
+  console.log(oEvent);
+  oEvent.preventDefault();
+  var sType = oEvent.type,
+      sClass =  "search",
+      oSearch = oEvent.currentTarget,
+      oForm  =  oSearch.form;
+  if((sType == 'focus' || sType == 'click') && !oForm.classList.contains(sClass)){
+    oForm.classList.add(sClass)
+  }else if(sType == 'blur' && oSearch.value.trim() == ''){
+    oForm.classList.remove(sClass)
+  }
+}
+//Quand le DOm est dispo
+document.addEventListener('DOMContentLoaded',function(){
+  var oInput = document.forms["form-search"]["search"];
+  oInput.addEventListener('focus',setSearch)
+  oInput.addEventListener('blur',setSearch);
+
+  document.getElementById("bt-search").addEventListener('click', function(oEvent){
+    oEvent.preventDefault();oInput.focus() ;
+  });
+
+  document.getElementById("bt-close").addEventListener('click', function(oEvent){
+    oEvent.preventDefault();
+    oInput.form.classList.remove("search");
+    oInput.value ='';
+  });
+});
+
