@@ -4,6 +4,7 @@
   <%= f.input :phone_number , input_html: { class: "my-form"} %>
   <%= f.input :description, input_html: { maxlength: 150, class: "my-form" }  %>
   <%= f.input :category, as: :radio_buttons, collection: %w(restaurant bar cinema theatre), wrapper: :vertical_collection_inline , input_html: { class: "my-form"} %>
+   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
   <%= f.submit 'Modifier', class: "button"%>
 <% end %>
