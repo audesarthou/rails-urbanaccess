@@ -1,13 +1,15 @@
 <div class="wrapper">
+  <div class="blue-block">
+    <p>Filtres</p>
+  </div>
 
-
-    <% @establishments.each do |establishment| %>
-      <%= establishment.name %>
-    <% end %>
     <div id="map"
-       style="width: 100%; height: 80vh;"
+       style="width: 100%; height: 45vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+    <% @establishments.each do |establishment| %>
+    <% end %>
 
 
 </div>

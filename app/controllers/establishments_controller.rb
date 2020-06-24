@@ -6,7 +6,10 @@ class EstablishmentsController < ApplicationController
     @markers = @establishments.map do |establishment|
       {
         lat: establishment.latitude,
-        lng: establishment.longitude
+        lng: establishment.longitude,
+        average: establishment.access_average,
+        name: establishment.name,
+        description: establishment.description
       }
     end
   end
