@@ -1,4 +1,16 @@
 class EstablishmentsController < ApplicationController
+
+  def index
+    @establishments = Establishment.geocoded # returns flats with coordinates
+
+    @markers = @establishments.map do |establishment|
+      {
+        lat: establishment.latitude,
+        lng: establishment.longitude
+      }
+    end
+  end
+
   def new
     @establishment = Establishment.new
   end
