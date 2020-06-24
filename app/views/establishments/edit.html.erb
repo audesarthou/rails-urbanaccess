@@ -1,12 +1,4 @@
 <div class="container my-5 py-4">
   <h2><%= @establishment.name %></h2>
-  <%= simple_form_for @establishment do |f| %>
-    <%= f.input :name , input_html: { class: "my-form"} %>
-    <%= f.input :address, input_html: { class: "my-form"} %>
-    <%= f.input :phone_number , input_html: { class: "my-form"} %>
-    <%= f.input :description, input_html: { maxlength: 150, class: "my-form" }  %>
-    <%= f.input :category, as: :radio_buttons, collection: %w(restaurant bar cinema theatre), wrapper: :vertical_collection_inline , input_html: { class: "my-form"} %>
-
-    <%= f.submit 'Modifier', class: "button"%>
-  <% end %>
+  <%= render "form", establishment: @establishment %>
 </div>

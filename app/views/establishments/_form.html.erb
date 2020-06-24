@@ -1,0 +1,9 @@
+<%= simple_form_for (establishment) do |f| %>
+  <%= f.input :name , input_html: { class: "my-form"} %>
+  <%= f.input :address, input_html: { class: "my-form"} %>
+  <%= f.input :phone_number , input_html: { class: "my-form"} %>
+  <%= f.input :description, input_html: { maxlength: 150, class: "my-form" }  %>
+  <%= f.input :category, as: :radio_buttons, collection: %w(restaurant bar cinema theatre), wrapper: :vertical_collection_inline , input_html: { class: "my-form"} %>
+
+  <%= f.submit 'Modifier', class: "button"%>
+<% end %>
