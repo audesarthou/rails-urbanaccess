@@ -1,2 +1,44 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper">
+  <div class="blue-block">
+    <p>Ton compagnon au quotidien</p>
+  </div>
+
+
+
+  <div class="home_search-block">
+    <form action="">
+      <input type="text" placeholder="Où allons nous ?" class="my-form mb-3">
+      <input type="text" placeholder="Que voulez vous faire ?" class="my-form mb-3">
+      <button class="button mb-4">C'est parti !</button>
+    </form>
+  </div>
+
+  <div class="activities_options">
+    <div class="home-picto">
+      <%= image_tag "picto_loisirs.svg", alt: "alttext"%>
+      <p>Loisirs</p>
+    </div>
+    <div class="home-picto">
+      <%= image_tag "picto_deplacements.svg", alt: "alttext"%>
+      <p>Déplacements</p>
+    </div>
+    <div class="home-picto">
+      <%= image_tag "picto_voyages.svg", alt: "alttext"%>
+      <p>Voyages</p>
+    </div>
+    <div class="home-picto">
+      <%= image_tag "picto_logements.svg", alt: "alttext"%>
+      <p>Logements</p>
+    </div>
+    <div class="home-picto">
+      <%= image_tag "picto_parking.svg", alt: "alttext"%>
+      <p>Parkings</p>
+    </div>
+    <div class="home-picto">
+      <%= image_tag "picto_reclamations.svg", alt: "alttext"%>
+      <p>Signaler un pb</p>
+    </div>
+
+  </div>
+
+</div>
