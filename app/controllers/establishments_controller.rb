@@ -4,9 +4,11 @@ class EstablishmentsController < ApplicationController
   end
   def update
     @establishment = Establishment.find(params[:id])
-    @establishment.update(establishment_params)
-
-    redirect_to establishment_path(@establishment)
+    if @establishment.update(establishment_params)
+      redirect_to establishment_path(@establishment)
+    else
+      render :edit
+    end
   end
 
   private
