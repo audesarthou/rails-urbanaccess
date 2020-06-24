@@ -1,12 +1,11 @@
-<div class="container mt-5 pt-5">
+<div class="container my-5 py-4">
   <h2><%= @establishment.name %></h2>
-  <p><%= @establishment.name %></p>
   <%= simple_form_for @establishment do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address, input_html: { maxlength: 150 }, class: "my-form" %>
-    <%= f.input :phone_number %>
-    <%= f.input :description, input_html: { maxlength: 150 }  %>
-    <%= f.input :category, as: :check_boxes, collection: %w(restaurant bar cinema theatre), wrapper: :vertical_collection_inline %>
+    <%= f.input :name , input_html: { class: "my-form"} %>
+    <%= f.input :address, input_html: { class: "my-form"} %>
+    <%= f.input :phone_number , input_html: { class: "my-form"} %>
+    <%= f.input :description, input_html: { maxlength: 150, class: "my-form" }  %>
+    <%= f.input :category, as: :radio_buttons, collection: %w(restaurant bar cinema theatre), wrapper: :vertical_collection_inline , input_html: { class: "my-form"} %>
 
     <%= f.submit 'Modifier', class: "button"%>
   <% end %>
