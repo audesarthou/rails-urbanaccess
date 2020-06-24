@@ -1,7 +1,22 @@
 class EstablishmentsController < ApplicationController
 
   def index
-    @establishments = Establishment.geocoded # returns flats with coordinates
+    @categories = %w(Restaurant Bar Cinema Theatre)
+
+
+
+    case params["filter"]
+    when "Bar"
+      @establishments = Establishment.where(category: "Bar").geocoded
+    when "Restaurant"
+      @establishments = Establishment.where(category: "Restaurant").geocoded
+    when "Cinema"
+      @establishments = Establishment.where(category: "Cinema").geocoded
+    when "Theatre"
+      @establishments = Establishment.where(category: "Theatre").geocoded
+    else
+      @establishments = Establishment.geocoded
+    end
 
     @markers = @establishments.map do |establishment|
       {
@@ -12,6 +27,8 @@ class EstablishmentsController < ApplicationController
         description: establishment.description
       }
     end
+
+
   end
 
   def new
