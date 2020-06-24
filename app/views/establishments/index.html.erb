@@ -1,5 +1,18 @@
 <div class="wrapper">
-  <div class="card-product">
+
+  <div class="blue-block">
+    <p>Filtres</p>
+  </div>
+
+    <div id="map"
+       style="width: 100%; height: 45vh;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+    <% @establishments.each do |establishment| %>
+    <% end %>
+
+ <div class="card-product">
     <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
     <div class="card-product-infos">
       <h2>Loco By Jem’s</h2>
@@ -20,4 +33,5 @@
       <p>4/5</p>
     </div>
   </div>
+
 </div>

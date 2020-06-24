@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_06_24_091059) do
 
   # These are extensions that must be enabled in order to support this database
@@ -56,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_091059) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "favorites", force: :cascade do |t|
