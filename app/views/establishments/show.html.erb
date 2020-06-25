@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="card">
+      <div class=“card-infos”>
+        <h2><%= @establishment.name %></h2>
+        <div class=“card-product-infos”>
+          <p>88 avis</p>
+          <ul class=“rounded-circle list-inline”>
+            <li><i class=“fas fa-circle”></i></li>
+            <li><i class=“fas fa-circle”></i></li>
+            <li><i class=“fas fa-circle”></i></li>
+            <li><i class=“fas fa-circle”></i></li>
+            <li><i class=“fas fa-circle”></i></li>
+          </ul>
+          <p>Bar à cocktails, Assiettes</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+            Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+            Cras elementum ultrices diam.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="map"
+       style="width: 100%; height: 50vh;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
+
+
+
