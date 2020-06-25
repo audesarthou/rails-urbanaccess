@@ -13,7 +13,7 @@
 
     <% @categories.each do |category| %>
       <li class="nav-item">
-        <%= link_to category, filter: category %>
+        <%= link_to category.capitalize, filter: category %>
  <!--   <%= check_box_tag category %>
         <%= category %> -->
       </li>
