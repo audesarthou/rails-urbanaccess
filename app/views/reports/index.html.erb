@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class=container>
+  <div class="container">
 
   <div class="blue-block">
     <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline my-2 my-lg-0 ml-3' } do |f| %>
@@ -7,23 +7,20 @@
     <%= f.submit "Search", class: "" %>
     <% end %>
   </div>
+
   <% @reports.each do |report| %>
 
   <div class="card-product">
     <img src="https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg" class="p-1" />
 
-      <div class="card-product-infos">
+      <div class="card-product-description">
         <h2><%= report.title %></h2>
         <p>Lorem ipsum</p>
       </div>
 
-      <div class="card-product-nb-signal">
-      <p>x signalements</p>
-      </div>
-
-      <div class="card-product-btn">
-      <button class="button mb-4">Envoyer un signalement</button>
-      <!-- #barre de progression -->
+      <div class="card-product-infos">
+        <%= link_to "Renvoyer", reports_path, class: "button" %>
+        <progress class="progress" value="50%" max="200">50%</progress>
       </div>
   </div>
 

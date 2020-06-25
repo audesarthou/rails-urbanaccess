@@ -13,15 +13,15 @@ class ReportsController < ApplicationController
     end
   end
 
-  # def create
-  #   @report = Report.new(report_params)
+  def create
+    @report = Report.new(report_params)
 
-  #   if @report.save
-  #     redirect_to report_path(@report)
-  #   else
-  #     render new_report_path
-  #   end
-  # end
+    if @report.save
+      redirect_to report_path(@report)
+    else
+      render new_report_path
+    end
+  end
 
   def show
     # @reports = Report.all
