@@ -42,6 +42,11 @@ class EstablishmentsController < ApplicationController
 
   def show
     @establishment = Establishment.find(params[:id])
+    @marker = {
+      lat: @establishment.latitude,
+      lng: @establishment.longitude,
+      average: @establishment.access_average
+    }
   end
 
   def edit
