@@ -61,3 +61,4 @@ const initMapbox = () => {
 
 
 export { initMapbox };
+export { markerColor };

@@ -1,9 +1,11 @@
 #map-show {
   position: absolute;
-  width: 375px;
-  height: 236px;
+  max-width: 400px;
+  // height: 236px;
   left: 0px;
-  top: 396px;
+  right: 0px;
+
+  top: 355px;
 }
 
 .card {
