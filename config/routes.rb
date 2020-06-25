@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resources :travel_tips, only: [:index]
 
-  resources :report, only: [:create, :index]
+  resources :reports, only: [:create, :index]
 end

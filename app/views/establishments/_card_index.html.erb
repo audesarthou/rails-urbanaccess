@@ -1,12 +1,23 @@
-
-<div class="card-product">
-  <img src="https://www.tripadvisor.fr/Restaurant_Review-g187079-d15198718-Reviews-Loco_By_Jem_s-Bordeaux_Gironde_Nouvelle_Aquitaine.html#photos;aggregationId=&albumid=101&filter=7&ff=351060108" />
-  <div class="card-product-infos">
-    <button type="button" class="btn mybutton btn-light rounded-circle" data-toggle="button" aria-pressed="false" autocomplete="off">
-    <i class="far fa-heart"></i>
-    <h2>Loco By Jem’s</h2>
-    <p>88 avis</p>
-    <p>Française Internationale Moderne</p>
-    <%= f.submit 'Comment se rendre', class: "button"%>
-  </div>
+ <div class="card-product">
+      <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
+      <div class="card-product-infos">
+        <h2><%= establishment.name %></h2>
+        <div class="card-product-top-infos">
+          <ul class="rounded-circle list-inline">
+            <li><i class="fas fa-circle"></i></li>
+            <li><i class="fas fa-circle"></i></li>
+            <li><i class="fas fa-circle"></i></li>
+            <li><i class="fas fa-circle"></i></li>
+            <li><i class="fas fa-circle"></i></li>
+            <p>88 avis</p>
+          </ul>
+        </div>
+      </div>
+      <div class="like d-block mx-auto d-flex flex-column">
+        <i class="far fa-heart"></i>
+        <%= image_tag "picto_handi.png", class: "small_icon" %>
+        <p> <%= establishment.access_average%></p>
+      </div>
+    </div>
+  <% end %>
 </div>
