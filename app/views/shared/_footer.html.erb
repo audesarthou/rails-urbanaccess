@@ -1,5 +1,15 @@
 <footer class="navbar fixed-bottom footer bg-darkblue">
-  <%= image_tag "picto_home.svg", alt: "alttext" %>
-  <%= image_tag "picto_favorites.svg", alt: "alttext" %>
-  <%= image_tag "picto_account.svg", alt: "alttext" %>
+  <%= link_to root_path do %>
+  <%= image_tag "picto_home.svg", alt: "home" %>
+  <% end %>
+
+  <%= link_to root_path do %>
+  <%= image_tag "picto_favorites.svg", alt: "favorites" %>
+  <% end %>
+
+  <%= link_to edit_user_registration_path do %>
+  <%= image_tag "picto_account.svg", alt: "account" %>
+  <% end %>
+
 </footer>
+
