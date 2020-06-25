@@ -1,8 +1,18 @@
 <div class="wrapper">
   <div class="container">
     <div class="card">
-      <div class=“card-infos”>
-        <h2><%= @establishment.name %></h2>
+      <div class="d-flex">
+        <%= image_tag "loco_by_jems_1.jpg", class: "", height: "160px"%>
+        <div class="img-right">
+          <%= image_tag "loco_by_jems_2.jpg", alt: "alttext", class: "", height: "80px" %>
+          <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
+        </div>
+      </div>
+
+
+
+
+        <!-- <h2><%= @establishment.name %></h2>
         <div class=“card-product-infos”>
           <p>88 avis</p>
           <ul class=“rounded-circle list-inline”>
@@ -13,15 +23,14 @@
             <li><i class=“fas fa-circle”></i></li>
           </ul>
           <p><%= @establishment.description %></p>
-        </div>
-      </div>
+        </div> -->
     </div>
-  </div>
-  </div>
 
- <div id="map-show"
+    <div id="map-show"
          style="width: 100%; height: 40vh;"
          data-marker="<%= @marker.to_json %>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-         class="mb-5"></div>
+         class="mb-5">
+    </div>
+  </div>
 </div>
