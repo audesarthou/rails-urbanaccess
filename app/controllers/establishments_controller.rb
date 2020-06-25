@@ -1,22 +1,23 @@
 class EstablishmentsController < ApplicationController
 
   def index
-    @categories = %w(Restaurant Bar Cinema Theatre)
+    @categories = Establishment.categories.keys[0...-2]
 
-    case params["filter"]
-    when "Bar"
-      @establishments = Establishment.where(category: "Bar").geocoded
-    when "Restaurant"
-      @establishments = Establishment.where(category: "Restaurant").geocoded
-    when "Cinema"
-      @establishments = Establishment.where(category: "Cinema").geocoded
-    when "Theatre"
-      @establishments = Establishment.where(category: "Theatre").geocoded
-    else
-      @establishments = Establishment.geocoded
+    @establishments = Establishment.all
+
+    if params[:search] && !params[:search][:activity].blank?
+      @establishments = @establishments.where(category: params[:search][:activity].to_sym)
     end
 
-    @markers = @establishments.map do |establishment|
+    if params[:search] && !params[:search][:location].blank?
+      @establishments = @establishments.geocoded.near(params[:search][:location], 100)
+    end
+
+    if params["filter"]
+      @establishments = @establishments.where(category: params["filter"].to_sym)
+    end
+
+    @markers = @establishments.geocoded.map do |establishment|
       {
         lat: establishment.latitude,
         lng: establishment.longitude,
