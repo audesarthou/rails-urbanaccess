@@ -3,8 +3,6 @@ class EstablishmentsController < ApplicationController
   def index
     @categories = %w(Restaurant Bar Cinema Theatre)
 
-
-
     case params["filter"]
     when "Bar"
       @establishments = Establishment.where(category: "Bar").geocoded
@@ -27,8 +25,6 @@ class EstablishmentsController < ApplicationController
         description: establishment.description
       }
     end
-
-
   end
 
   def new
