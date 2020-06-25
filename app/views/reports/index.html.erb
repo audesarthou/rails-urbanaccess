@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
 
-    <div class="blue-block mt-5">
+    <div class="blue-block mb-3">
       <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline my-2 my-lg-0 ml-3' } do |f| %>
       <%= f.input :title, label: false ,input_html: {class: "my-form"} %>
       <%= f.submit "Search", class: "button" %>
@@ -9,24 +9,23 @@
     </div>
 
     <% if @reports %>
-    <% @reports.each do |report| %>
+      <% @reports.each do |report| %>
 
-      <div class="card-product">
-        <img src="https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg" class="p-1" />
+        <div class="card-product mb-2">
+          <img src="https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg" class="p-1" />
 
-        <div class="card-product-description">
-          <h2><%= report.title %></h2>
-          <p>Lorem ipsum</p>
+          <div class="card-product-description">
+            <h2><%= report.title %></h2>
+            <p>Lorem ipsum</p>
+          </div>
+
+          <div class="card-product-infos">
+            <%= link_to "Renvoyer", reports_path, class: "button" %>
+            <progress class="progress" value="50%" max="200">50%</progress>
+          </div>
         </div>
 
-        <div class="card-product-infos">
-          <%= link_to "Renvoyer", reports_path, class: "button" %>
-          <progress class="progress" value="50%" max="200">50%</progress>
-        </div>
-      </div>
-
-    <% end %>
-
+      <% end %>
     <% end %>
 
     <h5>Faire remonter un nouveau signalement</h5>
