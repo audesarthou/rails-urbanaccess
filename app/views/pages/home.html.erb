@@ -13,28 +13,40 @@
 
   <div class="activities_options">
     <div class="home-picto">
-      <%= image_tag "picto_loisirs.svg", alt: "alttext"%>
+      <%= link_to establishments_path do %>
+      <%= image_tag "picto_loisirs.svg", alt: "Loisirs"%>
       <p>Loisirs</p>
+      <% end %>
     </div>
     <div class="home-picto">
-      <%= image_tag "picto_deplacements.svg", alt: "alttext"%>
+      <%= link_to "https://fr.street-co.com/", target: "_blank" do %>
+      <%= image_tag "picto_deplacements.svg", alt: "deplacements"%>
       <p>Déplacements</p>
+      <% end %>
     </div>
     <div class="home-picto">
-      <%= image_tag "picto_voyages.svg", alt: "alttext"%>
+      <%= link_to "https://handiplanet.com/", target: "_blank" do %>
+      <%= image_tag "picto_voyages.svg", alt: "voyages"%>
       <p>Voyages</p>
+      <% end %>
     </div>
     <div class="home-picto">
-      <%= image_tag "picto_logements.svg", alt: "alttext"%>
+      <%= link_to "https://www.seloger.com/immobilier/locations/immo-bordeaux-33/", target: "_blank" do %>
+      <%= image_tag "picto_logements.svg", alt: "logements"%>
       <p>Logements</p>
+      <% end %>
     </div>
     <div class="home-picto">
-      <%= image_tag "picto_parking.svg", alt: "alttext"%>
+      <%= link_to "https://parking.handicap.fr/", target: "_blank" do %>
+      <%= image_tag "picto_parking.svg", alt: "parking"%>
       <p>Parkings</p>
+      <% end %>
     </div>
     <div class="home-picto">
-      <%= image_tag "picto_reclamations.svg", alt: "alttext"%>
+      <%= link_to reports_path do %>
+      <%= image_tag "picto_reclamations.svg", alt: "reclamations"%>
       <p>Signaler un pb</p>
+      <% end %>
     </div>
 
   </div>
