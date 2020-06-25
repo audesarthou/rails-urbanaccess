@@ -20,8 +20,8 @@ class ReportsController < ApplicationController
     @report.user = @user
     if @report.save
       redirect_to reports_path
-    # else
-    #   render "reports"
+    else
+      render :index
     end
   end
 
