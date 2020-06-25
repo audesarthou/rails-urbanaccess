@@ -12,18 +12,14 @@
             <li><i class=“fas fa-circle”></i></li>
             <li><i class=“fas fa-circle”></i></li>
           </ul>
-          <p>Bar à cocktails, Assiettes</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-            Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
-            Cras elementum ultrices diam.
-          </p>
+          <p><%= @establishment.description %></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="map"
+<div id="map-show"
        style="width: 100%; height: 50vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
