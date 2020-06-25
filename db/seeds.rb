@@ -52,8 +52,8 @@ Establishment.create!(name: "Utopia", address: "5 place Camille Jullian Bordeaux
 Establishment.create!(name: "CGR Le Français", address: "9 rue Montesquieu Bordeaux", phone_number: "0 892 688 588", description: "Un des plus beau cinéma de Bordeaux.", category: "Cinema", access_average: 4, service_average: 5)
 
 puts "Create reports"
-Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Lorem ipsum", location: "", progress: "", user: coco)
-Report.create!(title: "Signalement 2", content: "Lorem ipsum", location: "", progress: "", user: coco)
-Report.create!(title: "Signalement 3", content: "Lorem ipsum", location: "", progress: "", user: coco)
+Report.create!(title: "Accessibilité trotoirs Caudéran", content: "hfdjhfjhjsdfhjdshhfdjhsjhfdshfffjdhskfjhsdjhfjds", location: "", progress: "", user: coco)
+Report.create!(title: "Signalement 2", content: "hfdjhfjhjsdfhjdshhfdjhsjhfdshfffjdhskfjhsdjhfjds", location: "", progress: "", user: coco)
+Report.create!(title: "Signalement 3", content: "hfdjhfjhjsdfhjdshhfdjhsjhfdshfffjdhskfjhsdjhfjds", location: "", progress: "", user: coco)
 
 puts "Finish!"
