@@ -1,12 +1,28 @@
 class EstablishmentsController < ApplicationController
 
   def index
-    @establishments = Establishment.geocoded # returns flats with coordinates
+    @categories = %w(Restaurant Bar Cinema Theatre)
+
+    case params["filter"]
+    when "Bar"
+      @establishments = Establishment.where(category: "Bar").geocoded
+    when "Restaurant"
+      @establishments = Establishment.where(category: "Restaurant").geocoded
+    when "Cinema"
+      @establishments = Establishment.where(category: "Cinema").geocoded
+    when "Theatre"
+      @establishments = Establishment.where(category: "Theatre").geocoded
+    else
+      @establishments = Establishment.geocoded
+    end
 
     @markers = @establishments.map do |establishment|
       {
         lat: establishment.latitude,
-        lng: establishment.longitude
+        lng: establishment.longitude,
+        average: establishment.access_average,
+        name: establishment.name,
+        description: establishment.description
       }
     end
   end
@@ -44,6 +60,6 @@ class EstablishmentsController < ApplicationController
   private
 
   def establishment_params
-    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category)
+    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, photos: [])
   end
 end
