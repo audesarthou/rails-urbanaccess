@@ -10,7 +10,7 @@ puts "Destroy all users"
 User.destroy_all
 
 puts "Create an user Coco"
-User.create!(first_name: "Coco", last_name: "DuWagon", address: "107 cours balguerie stuttenberg bordeaux", email: "coco@gmail.com", password: "azerty")
+coco=User.create!(first_name: "Coco", last_name: "DuWagon", address: "107 cours balguerie stuttenberg bordeaux", email: "coco@gmail.com", password: "azerty")
 
 puts "Destroy all establishments"
 Establishment.destroy_all
@@ -50,5 +50,10 @@ puts "Create cinema"
 Establishment.create!(name: "Megarama", address: "7 Quai de Queyries Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: "Cinema", access_average: 5, service_average: 4)
 Establishment.create!(name: "Utopia", address: "5 place Camille Jullian Bordeaux", phone_number: "05 56 52 00 03", description: "Cinéma attypique et authentique.", category: "Cinema", access_average: 3, service_average: 3)
 Establishment.create!(name: "CGR Le Français", address: "9 rue Montesquieu Bordeaux", phone_number: "0 892 688 588", description: "Un des plus beau cinéma de Bordeaux.", category: "Cinema", access_average: 4, service_average: 5)
+
+puts "Create reports"
+Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Lorem ipsum", location: "", progress: "", user: coco)
+Report.create!(title: "Signalement 2", content: "Lorem ipsum", location: "", progress: "", user: coco)
+Report.create!(title: "Signalement 3", content: "Lorem ipsum", location: "", progress: "", user: coco)
 
 puts "Finish!"
