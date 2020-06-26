@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 puts "Destroy all reports"
 Report.destroy_all
 
@@ -12,14 +14,24 @@ puts "Destroy all users"
 User.destroy_all
 
 puts "Create an user Coco"
-coco=User.create!(first_name: "Coco", last_name: "DuWagon", address: "107 cours balguerie stuttenberg bordeaux", email: "coco@gmail.com", password: "azerty")
+coco = User.create!(first_name: "Coco", last_name: "DuWagon", address: "107 cours balguerie stuttenberg bordeaux", email: "coco@gmail.com", password: "azerty")
 
 puts "Destroy all establishments"
 Establishment.destroy_all
 
 puts "Create restaurants"
 Establishment.create!(name: "Loco By Jem's", address: "293 rue d'Ornano Bordeaux", phone_number: "05 56 55 99 37", description: "Cuisine française moderne", category: :restaurant, access_average: 5, service_average: 5)
-Establishment.create!(name: "L'Exploit", address: "29 quai des Chartrons Bordeaux", phone_number: "05 57 59 92 82", description: "Sur les quais", category: :restaurant, access_average: 3, service_average: 4)
+# file1 = URI.open()
+exploit = Establishment.create!(name: "L'Exploit", address: "29 quai des Chartrons Bordeaux", phone_number: "05 57 59 92 82", description: "Sur les quais", category: :restaurant, access_average: 3, service_average: 4)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593172466/Urban_access/restaurants/lexploit/lexploit_1_yiugne.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593172466/Urban_access/restaurants/lexploit/lexploit_2_cwyhkd.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593172466/Urban_access/restaurants/lexploit/lexploit_3_xgqw1x.jpg")
+var1 = {io: file1, filename: "exploit1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "exploit2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "exploit3.jpg", content_type: "image/jpg"}
+exploit.photos.attach([var1, var2, var3])
+
+
 Establishment.create!(name: "Phénix d'Or", address: "17 rue des Frères Bonie Bordeaux", phone_number: "05 56 44 91 05", description: "Très bonne cuisine Vietnamienne.", category: :restaurant, access_average: 4, service_average: 5)
 Establishment.create!(name: "Chez Peppone", address: "Cours Georges Clémenceau Bordeaux", phone_number: "05 56 44 91 05", description: "Toute l'Italie dans votre assiette.", category: :restaurant, access_average: 2, service_average: 4)
 Establishment.create!(name: "Crêperie Gourmands", address: "172 rue Sainte Catherine Bordeaux", phone_number: "06 87 75 61 60", description: "Comme un goût de Bretagne mais le soleil en plus.", category: :restaurant, access_average: 3, service_average: 3)
