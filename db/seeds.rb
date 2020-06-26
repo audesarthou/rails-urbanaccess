@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Destroy all reports"
+Report.destroy_all
 
 puts "Destroy all users"
 User.destroy_all
@@ -50,9 +52,6 @@ puts "Create cinema"
 Establishment.create!(name: "Megarama", address: "7 allée Serr Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: :cinema, access_average: 5, service_average: 4)
 Establishment.create!(name: "Utopia", address: "5 place Camille Jullian Bordeaux", phone_number: "05 56 52 00 03", description: "Cinéma attypique et authentique.", category: :cinema, access_average: 3, service_average: 3)
 Establishment.create!(name: "CGR Le Français", address: "9 rue Montesquieu Bordeaux", phone_number: "0 892 688 588", description: "Un des plus beau cinéma de Bordeaux.", category: :cinema, access_average: 4, service_average: 5)
-
-puts "Destroy all reports"
-Report.destroy_all
 
 puts "Create reports"
 Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
