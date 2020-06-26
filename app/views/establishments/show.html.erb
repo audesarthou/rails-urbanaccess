@@ -3,10 +3,19 @@
     <div class="card-show">
 
       <div class="d-flex pictures">
-        <%= image_tag "loco_by_jems_1.jpg", class: "img-left", height: "160px"%>
+        <% if @establishment.photos.attached? %>
+          <%= cl_image_tag @establishment.photos.first.key, height: 160, width: 172, crop: :fill %>
+        <% else %>
+          <%= image_tag "loco_by_jems_1.jpg", class: "img-left", height: "160px"%>
+        <% end %>
         <div class="img-right">
-          <%= image_tag "loco_by_jems_2.jpg", alt: "alttext", class: "", height: "80px" %>
-          <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
+          <% if @establishment.photos.attached? %>
+            <%= cl_image_tag @establishment.photos[1].key, height: 80, width: 166, crop: :fill if @establishment.photos[1].present? %>
+            <%= cl_image_tag @establishment.photos[2].key, height: 80, width: 166, crop: :fill if @establishment.photos[2].present? %>
+          <% else %>
+            <%= image_tag "loco_by_jems_2.jpg", alt: "alttext", class: "", height: "80px" %>
+            <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
+          <% end %>
         </div>
         <%= image_tag "Icon/heart.svg", alt: "alttext", class: "icon-heart" %>
       </div>
