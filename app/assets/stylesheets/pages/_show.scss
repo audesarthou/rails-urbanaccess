@@ -66,8 +66,14 @@
     width: 145px;
     text-align: center;
   }
+  p {
+    margin-bottom: 0;
+  }
 }
-
+.establishment-show_button {
+  width: 150px;
+  align-self: flex-end;
+}
 #handi-picto {
   display: flex;
   flex-direction: column;

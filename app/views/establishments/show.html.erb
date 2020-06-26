@@ -33,11 +33,9 @@
           </div>
         </div>
 
-        <div class="card-show_description d-flex align-items-end">
-          <p><%= @establishment.description %>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quisquam veniam quis saepe doloribus nostrum amet accusamus, labore quae, at qui impedit libero recusandae ab possimus! Quaerat eveniet, quo ipsa.
-          </p>
-          <div>
+        <div class="card-show_description d-flex">
+          <p><%= @establishment.description %></p>
+          <div class="establishment-show_button">
             <%= link_to "Retour à la liste" , establishments_path, class: "button" %>
             <%= link_to "Comment s'y rendre" , establishment_path(@establishment, anchor: "map-show"), class: "button" %>
           </div>
