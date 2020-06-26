@@ -36,8 +36,8 @@ puts "Create bars"
 Establishment.create!(name: "Jaquen Craft Beer", address: "5 rue Beaubadat Bordeaux", phone_number: "06 48 14 00 38", description: "Sur les quais", category: :bar, access_average: 3, service_average: 4)
 Establishment.create!(name: "King Kong Bar", address: "72 quai des Chartrons Bordeaux", phone_number: "05 56 79 25 89", description: "Sur les quais", category: :bar, access_average: 2, service_average: 3)
 Establishment.create!(name: "Coco Loko", address: "3 rue Duffour Dubergier Bordeaux", phone_number: "06 98 81 58 52", description: "Pour s'amuser et danser.", category: :bar, access_average: 4, service_average: 3)
-Establishment.create!(name: "La Guinguette Chez Alriq", address: "ZA Quai de Queyries Port Bastide Bordeaux", phone_number: "05 56 86 58 49", description: "Pour s'amuser et danser.", category: :bar, access_average: 5, service_average: 5)
-Establishment.create!(name: "The Central Pub", address: "7 Quai de Queyries Bordeaux", phone_number: "05 57 80 38 00", description: "Lorem ipsum", category: :bar, access_average: 4, service_average: 4)
+Establishment.create!(name: "La Guinguette Chez Alriq", address: "Rue Hortense Bordeaux", phone_number: "05 56 86 58 49", description: "Pour s'amuser et danser.", category: :bar, access_average: 5, service_average: 5)
+Establishment.create!(name: "The Central Pub", address: "Rue Reignier Bordeaux", phone_number: "05 57 80 38 00", description: "Lorem ipsum", category: :bar, access_average: 4, service_average: 4)
 Establishment.create!(name: "Malika Kafe", address: "Quai de Bacalan Bordeaux", phone_number: "05 57 87 33 21", description: "Lorem ipsum", category: :bar, access_average: 3, service_average: 2)
 Establishment.create!(name: "Mashup", address: "23 rue des Piliers de Tutelle Bordeaux", phone_number: "05 56 87 67 95", description: "Lorem ipsum", category: :bar, access_average: 2, service_average: 3)
 
@@ -47,13 +47,13 @@ Establishment.create!(name: "Café Théâtre des Chartrons", address: "170 cours
 Establishment.create!(name: "Opéra National de Bordeaux", address: "Place de la Comédie Bordeaux", phone_number: "05 56 00 85 95", description: "Lorem ipsum", category: :theatre, access_average: 4, service_average: 4)
 
 puts "Create cinema"
-Establishment.create!(name: "Megarama", address: "7 Quai de Queyries Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: :cinema, access_average: 5, service_average: 4)
+Establishment.create!(name: "Megarama", address: "7 allée Serr Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: :cinema, access_average: 5, service_average: 4)
 Establishment.create!(name: "Utopia", address: "5 place Camille Jullian Bordeaux", phone_number: "05 56 52 00 03", description: "Cinéma attypique et authentique.", category: :cinema, access_average: 3, service_average: 3)
 Establishment.create!(name: "CGR Le Français", address: "9 rue Montesquieu Bordeaux", phone_number: "0 892 688 588", description: "Un des plus beau cinéma de Bordeaux.", category: :cinema, access_average: 4, service_average: 5)
 
 puts "Create reports"
-Report.create!(title: "Accessibilité trotoirs Caudéran", content: "hfdjhfjhjsdfhjdshhfdjhsjhfdshfffjdhskfjhsdjhfjds", location: "fjhsdjhfjd", progress: "", user: coco)
-Report.create!(title: "Signalement 2", content: "hfdjhfjhjsdfhjdshhfdjhsjhfdshfffjdhskfjhsdjhfjds", location: "fjhsdjhfjd", progress: "", user: coco)
-Report.create!(title: "Signalement 3", content: "hfdjhfjhjsdfhjdshhfdjhsjhfdshfffjdhskfjhsdjhfjds", location: "fjhsdjhfjd", progress: "", user: coco)
+Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
+Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
+Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
 
 puts "Finish!"

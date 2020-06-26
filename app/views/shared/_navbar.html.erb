@@ -21,7 +21,7 @@
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="far fa-user"> Mon profil</i>
+          <i class="far fa-user"></i> Mon profil
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to 'Connexion', new_user_session_path, class: "dropdown-item" %>
@@ -29,21 +29,21 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="far fa-heart"> Mes favoris</i></a>
+        <a class="nav-link" href="#"><i class="far fa-heart"></i> Mes favoris</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="far fa-envelope"> Nous contacter</i></a>
+        <a class="nav-link" href="#"><i class="far fa-envelope"></i> Nous contacter</a>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to  destroy_user_session_path, method: :delete, class: "nav-link" do %>
-            <i class="fas fa-power-off"> Déconnexion</i>
+            <i class="fas fa-power-off"></i> Déconnexion
           <% end %>
         </li>
       <% end %>
       <li class="nav-item">
         <%= link_to reports_path, class: "nav-link" do %>
-          <i class="fas fa-exclamation-circle"> Signaler un problème</i>
+          <i class="fas fa-exclamation-circle"></i> Signaler un problème
         <% end %>
       </li>
     </ul>
