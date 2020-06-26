@@ -1,12 +1,12 @@
 <div class="wrapper">
-  <div class="container">
+  <div class="blue-block lg-blue-block mb-3">
+    <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline my-2 my-lg-0 ml-3' } do |f| %>
+    <%= f.input :title, label: false ,input_html: {class: "my-form sm-input"} %>
+    <%= f.submit "Search", class: "button" %>
+    <% end %>
+  </div>
 
-    <div class="blue-block mb-3">
-      <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline my-2 my-lg-0 ml-3' } do |f| %>
-      <%= f.input :title, label: false ,input_html: {class: "my-form"} %>
-      <%= f.submit "Search", class: "button" %>
-      <% end %>
-    </div>
+  <div class="container">
 
     <% if @reports %>
       <% @reports.each do |report| %>
