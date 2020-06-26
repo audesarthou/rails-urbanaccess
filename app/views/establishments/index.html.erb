@@ -28,7 +28,12 @@
   <% @establishments.each do |establishment| %>
     <%= link_to establishment_path(establishment) do %>
      <div class="card-product mb-2">
+      <% if establishment.photos.attached? %>
+        <%= cl_image_tag establishment.photos.first.key, height: 100, width: 141, crop: :fill %>
+      <% else %>
         <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
+      <% end %>
+
         <div class="card-product-infos">
           <h3><%= establishment.name %></h3>
           <div class="card-product-top-infos">
