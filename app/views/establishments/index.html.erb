@@ -1,55 +1,55 @@
 <div class="wrapper">
 
-
   <div class="blue-block" type="filtre" data-toggle="collapse" data-target="#filterDropdown" aria-controls="filterDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <p>Filtres</p>
   </div>
   <div class="collapse navbar-collapse filter-collapse" id="filterDropdown">
-
-  <ul class="navbar-nav pl-4">
-    <li class="nav-item">
-      <%= link_to  'Tous les établissements', filter: 'all'  %>
-    </li>
-
-    <% @categories.each do |category| %>
+    <ul class="navbar-nav pl-4">
       <li class="nav-item">
-        <%= link_to category.capitalize, filter: category %>
- <!--   <%= check_box_tag category %>
-        <%= category %> -->
+        <%= link_to  'Tous les établissements', filter: 'all'  %>
       </li>
-    <% end %>
-
-  </ul>
-</div>
-
+      <% @categories.each do |category| %>
+        <li class="nav-item">
+          <%= link_to category.capitalize, filter: category %>
+    <!--   <%= check_box_tag category %>
+          <%= category %> -->
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
   <div id="map"
      style="width: 100%; height: 45vh;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-  <% @establishments.each do |establishment| %>
+  <div class="container mt-2">
 
-   <div class="card-product">
-      <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
-      <div class="card-product-infos">
-        <h2><%= establishment.name %></h2>
-        <div class="card-product-top-infos">
-          <ul class="rounded-circle list-inline">
-            <li><i class="fas fa-circle"></i></li>
-            <li><i class="fas fa-circle"></i></li>
-            <li><i class="fas fa-circle"></i></li>
-            <li><i class="fas fa-circle"></i></li>
-            <li><i class="fas fa-circle"></i></li>
-            <p>88 avis</p>
-          </ul>
+  <% @establishments.each do |establishment| %>
+    <%= link_to establishment_path(establishment) do %>
+     <div class="card-product mb-2">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
+        <div class="card-product-infos">
+          <h2><%= establishment.name %></h2>
+          <div class="card-product-top-infos">
+            <ul class="rounded-circle list-inline">
+              <li><i class="fas fa-circle"></i></li>
+              <li><i class="fas fa-circle"></i></li>
+              <li><i class="fas fa-circle"></i></li>
+              <li><i class="fas fa-circle"></i></li>
+              <li><i class="fas fa-circle"></i></li>
+              <p>88 avis</p>
+            </ul>
+          </div>
+        </div>
+        <div class="like d-block mx-auto d-flex flex-column">
+          <i class="far fa-heart"></i>
+          <%= image_tag "picto_handi.png", class: "small_icon" %>
+          <p> <%= establishment.access_average%></p>
         </div>
       </div>
-      <div class="like d-block mx-auto d-flex flex-column">
-        <i class="far fa-heart"></i>
-        <%= image_tag "picto_handi.png", class: "small_icon" %>
-        <p> <%= establishment.access_average%></p>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
 </div>

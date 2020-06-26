@@ -1,29 +1,53 @@
 <div class="wrapper">
   <div class="container">
-    <div class="card">
-      <div class="d-flex">
-        <%= image_tag "loco_by_jems_1.jpg", class: "", height: "160px"%>
+    <div class="card-show">
+
+      <div class="d-flex pictures">
+        <%= image_tag "loco_by_jems_1.jpg", class: "img-left", height: "160px"%>
         <div class="img-right">
           <%= image_tag "loco_by_jems_2.jpg", alt: "alttext", class: "", height: "80px" %>
           <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
         </div>
+        <%= image_tag "Icon/heart.svg", alt: "alttext", class: "icon-heart" %>
+      </div>
+
+      <div class="card-show_content">
+
+        <div class="d-flex justify-content-between">
+          <div>
+            <h5><%= @establishment.name %></h5>
+            <div class="d-flex">
+              <ul class="rounded-circle d-flex">
+                <li><i class="fas fa-circle"></i></li>
+                <li><i class="fas fa-circle"></i></li>
+                <li><i class="fas fa-circle"></i></li>
+                <li><i class="fas fa-circle"></i></li>
+                <li><i class="fas fa-circle"></i></li>
+              </ul>
+              <p><small> 88 avis</small></p>
+            </div>
+          </div>
+          <div id="handi-picto">
+          <%= image_tag "picto_handi.png", alt: "alttext" %>
+          <span><%= @establishment.access_average %> </span>
+          </div>
+        </div>
+
+        <div class="card-show_description d-flex align-items-end">
+          <p><%= @establishment.description %>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quisquam veniam quis saepe doloribus nostrum amet accusamus, labore quae, at qui impedit libero recusandae ab possimus! Quaerat eveniet, quo ipsa.
+          </p>
+          <div>
+            <%= link_to "Retour à la liste" , establishments_path, class: "button" %>
+            <%= link_to "Comment s'y rendre" , establishment_path(@establishment, anchor: "map-show"), class: "button" %>
+          </div>
+        </div>
+
+
       </div>
 
 
 
-
-        <!-- <h2><%= @establishment.name %></h2>
-        <div class=“card-product-infos”>
-          <p>88 avis</p>
-          <ul class=“rounded-circle list-inline”>
-            <li><i class=“fas fa-circle”></i></li>
-            <li><i class=“fas fa-circle”></i></li>
-            <li><i class=“fas fa-circle”></i></li>
-            <li><i class=“fas fa-circle”></i></li>
-            <li><i class=“fas fa-circle”></i></li>
-          </ul>
-          <p><%= @establishment.description %></p>
-        </div> -->
     </div>
 
     <div id="map-show"
