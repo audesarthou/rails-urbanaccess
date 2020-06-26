@@ -31,9 +31,9 @@
     <h5>Faire remonter un nouveau signalement</h5>
 
     <%= simple_form_for @report do |f| %>
-      <%= f.input :title %>
-      <%= f.input :content, input_html: { maxlength: 150 } %>
-      <%= f.input :location %>
+      <%= f.input :title, input_html: { class: "my-form"} %>
+      <%= f.input :content, input_html: { maxlength: 150, class: "my-form" } %>
+      <%= f.input :location, input_html: { class: "my-form"} %>
       <%= f.input :photo, as: :file %>
       <%= f.submit 'Signaler mon problème', class: "button"%>
     <% end %>
