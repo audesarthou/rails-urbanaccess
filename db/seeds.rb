@@ -160,25 +160,138 @@ var3 = {io: file3, filename: "bastide3.jpg", content_type: "image/jpg"}
 bastide.photos.attach([var1, var2, var3])
 bastide.save!
 
-
 puts "Create bars"
-Establishment.create!(name: "Jaquen Craft Beer", address: "5 rue Beaubadat Bordeaux", phone_number: "06 48 14 00 38", description: "Sur les quais", category: :bar, access_average: 3, service_average: 4)
-Establishment.create!(name: "King Kong Bar", address: "72 quai des Chartrons Bordeaux", phone_number: "05 56 79 25 89", description: "Sur les quais", category: :bar, access_average: 2, service_average: 3)
-Establishment.create!(name: "Coco Loko", address: "3 rue Duffour Dubergier Bordeaux", phone_number: "06 98 81 58 52", description: "Pour s'amuser et danser.", category: :bar, access_average: 4, service_average: 3)
-Establishment.create!(name: "La Guinguette Chez Alriq", address: "Rue Hortense Bordeaux", phone_number: "05 56 86 58 49", description: "Pour s'amuser et danser.", category: :bar, access_average: 5, service_average: 5)
-Establishment.create!(name: "The Central Pub", address: "Rue Reignier Bordeaux", phone_number: "05 57 80 38 00", description: "Lorem ipsum", category: :bar, access_average: 4, service_average: 4)
-Establishment.create!(name: "Malika Kafe", address: "Quai de Bacalan Bordeaux", phone_number: "05 57 87 33 21", description: "Lorem ipsum", category: :bar, access_average: 3, service_average: 2)
-Establishment.create!(name: "Mashup", address: "23 rue des Piliers de Tutelle Bordeaux", phone_number: "05 56 87 67 95", description: "Lorem ipsum", category: :bar, access_average: 2, service_average: 3)
+jaquen = Establishment.new(name: "Jaquen Craft Beer", address: "5 rue Beaubadat Bordeaux", phone_number: "06 48 14 00 38", description: "Sur les quais", category: :bar, access_average: 3, service_average: 4)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173319/Urban_access/bars/Jaquen_Craft_Beer/Jaquen_Craft_Beer_1_se1a0p.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173317/Urban_access/bars/Jaquen_Craft_Beer/Jaquen_Craft_Beer_2_ajynz3.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173317/Urban_access/bars/Jaquen_Craft_Beer/Jaquen_Craft_Beer_3_givluh.jpg")
+var1 = {io: file1, filename: "jaquen1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "jaquen2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "jaquen3.jpg", content_type: "image/jpg"}
+jaquen.photos.attach([var1, var2, var3])
+jaquen.save!
+
+kingkong = Establishment.new(name: "King Kong Bar", address: "72 quai des Chartrons Bordeaux", phone_number: "05 56 79 25 89", description: "Sur les quais", category: :bar, access_average: 2, service_average: 3)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173320/Urban_access/bars/King_Kong_Bar/King_Kong_Bar_1_afaaw3.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173318/Urban_access/bars/King_Kong_Bar/King_Kong_Bar_2_wuf2bf.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/King_Kong_Bar/King_Kong_Bar_3_dahes2.jpg")
+var1 = {io: file1, filename: "kingkong1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "kingkong2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "kingkong3.jpg", content_type: "image/jpg"}
+kingkong.photos.attach([var1, var2, var3])
+kingkong.save!
+
+cocoloko = Establishment.new(name: "Coco Loko", address: "3 rue Duffour Dubergier Bordeaux", phone_number: "06 98 81 58 52", description: "Pour s'amuser et danser.", category: :bar, access_average: 4, service_average: 3)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173320/Urban_access/bars/Coco_Loko/Coco_Loko_1_ux0bnu.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173316/Urban_access/bars/Coco_Loko/Coco_Loko_2_xz3bqu.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173318/Urban_access/bars/Coco_Loko/Coco_Loko_3_xby1l6.jpg")
+var1 = {io: file1, filename: "cocoloko1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "cocoloko2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "cocoloko3.jpg", content_type: "image/jpg"}
+cocoloko.photos.attach([var1, var2, var3])
+cocoloko.save!
+
+guinguette = Establishment.new(name: "La Guinguette Chez Alriq", address: "Rue Hortense Bordeaux", phone_number: "05 56 86 58 49", description: "Pour s'amuser et danser.", category: :bar, access_average: 5, service_average: 5)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173320/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_1_lg9xj2.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173324/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_2_xrrvfv.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_3_qzydvg.jpg.jpg")
+var1 = {io: file1, filename: "guinguette1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "guinguette2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "guinguette3.jpg", content_type: "image/jpg"}
+guinguette.photos.attach([var1, var2, var3])
+guinguette.save!
+
+centralpub = Establishment.new(name: "The Central Pub", address: "Rue Reignier Bordeaux", phone_number: "05 57 80 38 00", description: "Lorem ipsum", category: :bar, access_average: 4, service_average: 4)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173330/Urban_access/bars/The_Central_Pub/The_Central_Pub_1_xyzocu.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173329/Urban_access/bars/The_Central_Pub/The_Central_Pub_2_nd1auo.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173329/Urban_access/bars/The_Central_Pub/The_Central_Pub_3_miqu0d.jpg")
+var1 = {io: file1, filename: "centralpub1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "centralpub2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "centralpub3.jpg", content_type: "image/jpg"}
+centralpub.photos.attach([var1, var2, var3])
+centralpub.save!
+
+makila = Establishment.new(name: "Makila Kafe", address: "Quai de Bacalan Bordeaux", phone_number: "05 57 87 33 21", description: "Lorem ipsum", category: :bar, access_average: 3, service_average: 2)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/Makila_Kafe/Makila_Kafe_1_isx8fu.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173327/Urban_access/bars/Makila_Kafe/Makila_Kafe_2_el5wjm.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/Makila_Kafe/Makila_Kafe_3_ctkxtq.jpg")
+var1 = {io: file1, filename: "makila1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "makila2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "makila3.jpg", content_type: "image/jpg"}
+makila.photos.attach([var1, var2, var3])
+makila.save!
+
+mashup = Establishment.new(name: "Mashup", address: "23 rue des Piliers de Tutelle Bordeaux", phone_number: "05 56 87 67 95", description: "Lorem ipsum", category: :bar, access_average: 2, service_average: 3)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/Mashup/Mashup_1_lrb6z2.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173329/Urban_access/bars/Mashup/Mashup_2_pcfedm.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173329/Urban_access/bars/Mashup/Mashup_3_h00x0c.jpg")
+var1 = {io: file1, filename: "mashup1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "mashup2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "mashup3.jpg", content_type: "image/jpg"}
+mashup.photos.attach([var1, var2, var3])
+mashup.save!
 
 puts "Create theaters"
-Establishment.create!(name: "Comédie Gallien", address: "20 rue Rolland Bordeaux", phone_number: "05 56 44 04 44", description: "Lorem ipsum", category: :theatre, access_average: 2, service_average: 3)
-Establishment.create!(name: "Café Théâtre des Chartrons", address: "170 cours du Médoc Bordeaux", phone_number: "05 56 37 63 44", description: "Lorem ipsum", category: :theatre, access_average: 3, service_average: 3)
-Establishment.create!(name: "Opéra National de Bordeaux", address: "Place de la Comédie Bordeaux", phone_number: "05 56 00 85 95", description: "Lorem ipsum", category: :theatre, access_average: 4, service_average: 4)
+gallien = Establishment.new(name: "Comédie Gallien", address: "20 rue Rolland Bordeaux", phone_number: "05 56 44 04 44", description: "Lorem ipsum", category: :theatre, access_average: 2, service_average: 3)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/Comedie_Gallien/Comedie_Gallien_1_f61iyh.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/Comedie_Gallien/Comedie_Gallien_2_w58ck2.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/Comedie_Gallien/Comedie_Gallien_3_i49n0w.jpg")
+var1 = {io: file1, filename: "gallien1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "gallien2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "gallien3.jpg", content_type: "image/jpg"}
+gallien.photos.attach([var1, var2, var3])
+gallien.save!
+
+theatrechartrons = Establishment.new(name: "Café Théâtre des Chartrons", address: "170 cours du Médoc Bordeaux", phone_number: "05 56 37 63 44", description: "Lorem ipsum", category: :theatre, access_average: 3, service_average: 3)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/ctc/ctc_1_anrvqq.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/ctc/ctc_2_fp4pfi.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/ctc/ctc_3_rsft5m.jpg")
+var1 = {io: file1, filename: "theatrechartrons1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "theatrechartrons2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "theatrechartrons3.jpg", content_type: "image/jpg"}
+theatrechartrons.photos.attach([var1, var2, var3])
+theatrechartrons.save!
+
+opera = Establishment.new(name: "Opéra National de Bordeaux", address: "Place de la Comédie Bordeaux", phone_number: "05 56 00 85 95", description: "Lorem ipsum", category: :theatre, access_average: 4, service_average: 4)
+file1 = URI.open("hhttps://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/opera/opera_1_ndo3gs.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173499/Urban_access/theatres/opera/opera_2_zed1aq.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/opera/opera_3_h1mpzo.jpg")
+var1 = {io: file1, filename: "opera1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "opera2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "opera3.jpg", content_type: "image/jpg"}
+opera.photos.attach([var1, var2, var3])
+opera.save!
 
 puts "Create cinema"
-Establishment.create!(name: "Megarama", address: "7 allée Serr Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: :cinema, access_average: 5, service_average: 4)
-Establishment.create!(name: "Utopia", address: "5 place Camille Jullian Bordeaux", phone_number: "05 56 52 00 03", description: "Cinéma attypique et authentique.", category: :cinema, access_average: 3, service_average: 3)
-Establishment.create!(name: "CGR Le Français", address: "9 rue Montesquieu Bordeaux", phone_number: "0 892 688 588", description: "Un des plus beau cinéma de Bordeaux.", category: :cinema, access_average: 4, service_average: 5)
+megarama = Establishment.new(name: "Megarama", address: "7 allée Serr Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: :cinema, access_average: 5, service_average: 4)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173374/Urban_access/cinemas/megarama/megarama_1_gvkcjk.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173374/Urban_access/cinemas/megarama/megarama_2_ci7v5e.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173375/Urban_access/cinemas/megarama/megarama_3_drhuew.jpg")
+var1 = {io: file1, filename: "megarama1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "megarama2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "megarama3.jpg", content_type: "image/jpg"}
+megarama.photos.attach([var1, var2, var3])
+megarama.save!
+
+utopia = Establishment.new(name: "Utopia", address: "5 place Camille Jullian Bordeaux", phone_number: "05 56 52 00 03", description: "Cinéma attypique et authentique.", category: :cinema, access_average: 3, service_average: 3)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173376/Urban_access/cinemas/utopia/utopia_1_nhef9i.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173375/Urban_access/cinemas/utopia/utopia_3_tkdryk.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173375/Urban_access/cinemas/utopia/utopia_3_tkdryk.jpg")
+var1 = {io: file1, filename: "utopia1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "utopia2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "utopia3.jpg", content_type: "image/jpg"}
+utopia.photos.attach([var1, var2, var3])
+utopia.save!
+
+francaiscgr = Establishment.new(name: "CGR Le Français", address: "9 rue Montesquieu Bordeaux", phone_number: "0 892 688 588", description: "Un des plus beau cinéma de Bordeaux.", category: :cinema, access_average: 4, service_average: 5)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173374/Urban_access/cinemas/cgr/cgr_1_bd9r3y.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173374/Urban_access/cinemas/cgr/cgr_2_okzdg8.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173374/Urban_access/cinemas/cgr/cgr_3_txv4rj.jpg")
+var1 = {io: file1, filename: "francaiscgr1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "francaiscgr2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "francaiscgr3.jpg", content_type: "image/jpg"}
+francaiscgr.photos.attach([var1, var2, var3])
+francaiscgr.save!
 
 puts "Create reports"
 Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
