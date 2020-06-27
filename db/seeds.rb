@@ -242,25 +242,25 @@ var3 = {io: file3, filename: "gallien3.jpg", content_type: "image/jpg"}
 gallien.photos.attach([var1, var2, var3])
 gallien.save!
 
-theatrechartrons = Establishment.new(name: "Café Théâtre des Chartrons", address: "170 cours du Médoc Bordeaux", phone_number: "05 56 37 63 44", description: "Lorem ipsum", category: :theatre, access_average: 3, service_average: 3)
-file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/ctc/ctc_1_anrvqq.jpg")
-file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/ctc/ctc_2_fp4pfi.jpg")
-file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/ctc/ctc_3_rsft5m.jpg")
-var1 = {io: file1, filename: "theatrechartrons1.jpg", content_type: "image/jpg"}
-var2 = {io: file2, filename: "theatrechartrons2.jpg", content_type: "image/jpg"}
-var3 = {io: file3, filename: "theatrechartrons3.jpg", content_type: "image/jpg"}
-theatrechartrons.photos.attach([var1, var2, var3])
-theatrechartrons.save!
+# theatrechartrons = Establishment.new(name: "Café Théâtre des Chartrons", address: "170 cours du Médoc Bordeaux", phone_number: "05 56 37 63 44", description: "Lorem ipsum", category: :theatre, access_average: 3, service_average: 3)
+# file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/ctc/ctc_1_anrvqq.jpg")
+# file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/ctc/ctc_2_fp4pfi.jpg")
+# file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173497/Urban_access/theatres/ctc/ctc_3_rsft5m.jpg")
+# var1 = {io: file1, filename: "theatrechartrons1.jpg", content_type: "image/jpg"}
+# var2 = {io: file2, filename: "theatrechartrons2.jpg", content_type: "image/jpg"}
+# var3 = {io: file3, filename: "theatrechartrons3.jpg", content_type: "image/jpg"}
+# theatrechartrons.photos.attach([var1, var2, var3])
+# theatrechartrons.save!
 
-opera = Establishment.new(name: "Opéra National de Bordeaux", address: "Place de la Comédie Bordeaux", phone_number: "05 56 00 85 95", description: "Lorem ipsum", category: :theatre, access_average: 4, service_average: 4)
-file1 = URI.open("hhttps://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/opera/opera_1_ndo3gs.jpg")
-file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173499/Urban_access/theatres/opera/opera_2_zed1aq.jpg")
-file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/opera/opera_3_h1mpzo.jpg")
-var1 = {io: file1, filename: "opera1.jpg", content_type: "image/jpg"}
-var2 = {io: file2, filename: "opera2.jpg", content_type: "image/jpg"}
-var3 = {io: file3, filename: "opera3.jpg", content_type: "image/jpg"}
-opera.photos.attach([var1, var2, var3])
-opera.save!
+# opera = Establishment.new(name: "Opéra National de Bordeaux", address: "Place de la Comédie Bordeaux", phone_number: "05 56 00 85 95", description: "Lorem ipsum", category: :theatre, access_average: 4, service_average: 4)
+# file1 = URI.open("hhttps://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/opera/opera_1_ndo3gs.jpg")
+# file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173499/Urban_access/theatres/opera/opera_2_zed1aq.jpg")
+# file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/opera/opera_3_h1mpzo.jpg")
+# var1 = {io: file1, filename: "opera1.jpg", content_type: "image/jpg"}
+# var2 = {io: file2, filename: "opera2.jpg", content_type: "image/jpg"}
+# var3 = {io: file3, filename: "opera3.jpg", content_type: "image/jpg"}
+# opera.photos.attach([var1, var2, var3])
+# opera.save!
 
 puts "Create cinema"
 megarama = Establishment.new(name: "Megarama", address: "7 allée Serr Bordeaux", phone_number: "05 56 40 66 70", description: "Très grand cinema", category: :cinema, access_average: 5, service_average: 4)
