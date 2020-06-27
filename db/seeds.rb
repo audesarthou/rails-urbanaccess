@@ -194,7 +194,7 @@ cocoloko.save!
 guinguette = Establishment.new(name: "La Guinguette Chez Alriq", address: "Rue Hortense Bordeaux", phone_number: "05 56 86 58 49", description: "Pour s'amuser et danser.", category: :bar, access_average: 5, service_average: 5)
 file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173320/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_1_lg9xj2.jpg")
 file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173324/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_2_xrrvfv.jpg")
-file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_3_qzydvg.jpg.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173328/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_3_qzydvg.jpg")
 var1 = {io: file1, filename: "guinguette1.jpg", content_type: "image/jpg"}
 var2 = {io: file2, filename: "guinguette2.jpg", content_type: "image/jpg"}
 var3 = {io: file3, filename: "guinguette3.jpg", content_type: "image/jpg"}
