@@ -30,10 +30,11 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initMapboxShow } from '../plugins/init_mapbox_show';
+import { initSelect2 } from '../plugins/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  initSelect2();
   initMapbox();
   initMapboxShow();
 });
