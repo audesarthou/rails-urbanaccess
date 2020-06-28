@@ -39,7 +39,19 @@
             </div>
           </div>
           <div id="handi-picto">
-            <%= image_tag "picto_handi.png", alt: "alttext" %>
+            <% color = "#128AB2" %>
+            <% unless @access_average.nil? %>
+              <% if @access_average >= 4 %>
+               <% color = "green" %>
+              <% elsif @access_average >= 3%>
+                <% color = "orange" %>
+              <% else %>
+                <% color = "red" %>
+              <% end %>
+
+
+            <% end %>
+            <%= image_tag "picto_handi.png", alt: "alttext", style: " border: 3px solid #{color};" %>
             <span><%= @access_average ? @access_average : "-" %> / 5 </span>
 
           </div>
