@@ -27,11 +27,13 @@
             <h5><%= @establishment.name %></h5>
             <div class="d-flex">
               <ul class="rounded-circle d-flex">
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
+               <% unless @establishment.service_average.nil? %>
+                  <% count = 0 %>
+                  <% while count < @establishment.service_average %>
+                    <li><i class="fas fa-circle"></i></li>
+                    <% count += 1 %>
+                  <% end %>
+                <% end %>
               </ul>
               <p><small> <%= @establishment.reviews.count %> avis</small></p>
             </div>
