@@ -51,6 +51,7 @@ class EstablishmentsController < ApplicationController
     @reviews = @establishment.reviews
     comput_access_average
     comput_service_average
+    @establishment.update(access_average: comput_access_average, service_average: comput_service_average)
     @review = Review.new
   end
 
