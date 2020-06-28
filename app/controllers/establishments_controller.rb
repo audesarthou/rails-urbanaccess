@@ -88,8 +88,9 @@ class EstablishmentsController < ApplicationController
     @establishment.reviews.each do |review|
       service_ratings << review.service_rating
     end
-    unless @reviews.count.zero?
-      @service_average = service_ratings.sum / @reviews.count
+    service_ratings.reject! { |r| r.nil?}
+    unless service_ratings.count.zero?
+      @service_average = service_ratings.sum / service_ratings.count
     end
   end
 end
