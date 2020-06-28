@@ -58,7 +58,7 @@
     <% if @reviews %>
       <div class="reviews">
         <% @reviews.each do |review| %>
-          <div class="card card-review p-2 mb-2">
+          <div class="card-review p-2 mb-2">
             <div class="d-flex justify-content-between card-review_header">
               <h6><strong><%= review.user.first_name %></strong>, le <%= review.created_at.strftime("%d/%m/%Y") %> </h6>
               <div class="review-card_rating d-flex">
@@ -82,7 +82,7 @@
       <h6>Ecrire un nouveau commentaire</h6>
       <%= simple_form_for [@establishment, @review] do |f| %>
         <%= f.input :content %>
-        <%= f.input :access_rating %>
+        <%= f.input :access_rating, collection: 0..5 %>
         <%= f.input :service_rating %>
         <%= f.submit 'Envoyer', class: "button"%>
       <% end %>
