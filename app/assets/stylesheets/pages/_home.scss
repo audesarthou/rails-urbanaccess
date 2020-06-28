@@ -18,7 +18,7 @@
   }
 }
 .home_search-block {
-  height: 370px;
+  height: 345px;
   position: relative;
   background-image: asset-url('home.jpg');
   background-size: 160%;
@@ -34,7 +34,7 @@
 
 .activities_options {
   width: 100%;
-  height: 150px;
+  height: 161px;
   background-color: $dark-blue;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -45,11 +45,13 @@
   text-align: center;
   background-color: white;
   img {
-  height: 40px;
-  padding-top: 5px;
-  margin-bottom: 4px;
+    height: 50px;
+    margin-bottom: 4px;
+    margin-top: 6px;
   }
   p{
     margin: 0;
+    font-size: 14px;
+    font-weight: 500;
   }
 }
