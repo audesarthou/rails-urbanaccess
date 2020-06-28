@@ -48,7 +48,10 @@ class EstablishmentsController < ApplicationController
       lng: @establishment.longitude,
       average: @establishment.access_average
     }
-
+    @reviews = @establishment.reviews
+    comput_access_average
+    comput_service_average
+    @review = Review.new
   end
 
   def edit
@@ -68,5 +71,25 @@ class EstablishmentsController < ApplicationController
 
   def establishment_params
     params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, photos: [])
+  end
+
+  def comput_access_average
+    access_ratings = []
+    @establishment.reviews.each do |review|
+      access_ratings << review.access_rating
+    end
+    unless @reviews.count.zero?
+      @access_average = access_ratings.sum / @reviews.count
+    end
+  end
+
+  def comput_service_average
+    service_ratings = []
+    @establishment.reviews.each do |review|
+      service_ratings << review.service_rating
+    end
+    unless @reviews.count.zero?
+      @service_average = service_ratings.sum / @reviews.count
+    end
   end
 end

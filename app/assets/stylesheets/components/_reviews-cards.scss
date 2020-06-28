@@ -1,0 +1,29 @@
+.card-review {
+  h6 {
+    color: $dark-blue;
+    font-size: 12px;
+  }
+  .card-review_header p {
+    margin: 0 0 8px 0;
+  }
+}
+
+.review-card_rating {
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.service_rating {
+  margin-left: 16px;
+}
+
+.review-content {
+  font-style: italic;
+  font-size: 16px
+}
