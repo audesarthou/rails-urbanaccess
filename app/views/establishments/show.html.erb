@@ -33,12 +33,13 @@
                 <li><i class="fas fa-circle"></i></li>
                 <li><i class="fas fa-circle"></i></li>
               </ul>
-              <p><small> 88 avis</small></p>
+              <p><small> <%= @establishment.reviews.count %> avis</small></p>
             </div>
           </div>
           <div id="handi-picto">
-          <%= image_tag "picto_handi.png", alt: "alttext" %>
-          <span><%= @establishment.access_average %> </span>
+            <%= image_tag "picto_handi.png", alt: "alttext" %>
+            <span><%= @access_average ? @access_average : "-" %> / 5 </span>
+
           </div>
         </div>
 
@@ -53,10 +54,39 @@
 
       </div>
 
-
-
     </div>
+    <% if @reviews %>
+      <div class="reviews">
+        <% @reviews.each do |review| %>
+          <div class="card-review p-2 mb-2">
+            <div class="d-flex justify-content-between card-review_header">
+              <h6><strong><%= review.user.first_name %></strong>, le <%= review.created_at.strftime("%d/%m/%Y") %> </h6>
+              <div class="review-card_rating d-flex">
+                <div class="access_rating d-flex">
+                  <%= image_tag "picto_handi.png", alt: "alttext" %>
+                  <p><%= review.access_rating %>/5 </p>
+                </div>
+                <div class="service_rating d-flex">
+                  <%= image_tag "picto_loisirs.svg", alt: "alttext" %>
+                  <p><%= review.service_rating ? review.service_rating : "-" %>/5</p>
+                </div>
+              </div>
+            </div>
+            <p class="review-content"><%= review.content %></p>
+          </div>
+        <% end %>
+    </div>
+    <% end %>
 
+    <div class="new_review card px-3 py-1 mb-3">
+      <h6>Ecrire un nouveau commentaire</h6>
+      <%= simple_form_for [@establishment, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :access_rating, collection: 0..5 %>
+        <%= f.input :service_rating %>
+        <%= f.submit 'Envoyer', class: "button"%>
+      <% end %>
+    </div>
     <div id="map-show"
          style="width: 100%; height: 40vh;"
          data-marker="<%= @marker.to_json %>"
