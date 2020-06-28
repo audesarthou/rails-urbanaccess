@@ -45,9 +45,11 @@
           </div>
         </div>
 
-        <div class="card-show_description d-flex">
+        <div class="card-show_description">
+          <p><i class="fas fa-phone"></i><%= @establishment.phone_number %></p>
+          <p><i class="fas fa-map-marked-alt"></i><%= @establishment.address %></p>
           <p><%= @establishment.description %></p>
-          <div class="establishment-show_button">
+          <div class="establishment-show_button d-flex justify-content-around">
             <%= link_to "Retour à la liste" , establishments_path, class: "button" %>
             <%= link_to "Comment s'y rendre" , establishment_path(@establishment, anchor: "map-show"), class: "button" %>
           </div>
