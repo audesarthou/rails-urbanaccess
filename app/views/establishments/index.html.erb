@@ -1,21 +1,8 @@
 <div class="wrapper">
-
-  <div class="blue-block" type="filtre" data-toggle="collapse" data-target="#filterDropdown" aria-controls="filterDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <p>Filtres</p>
-  </div>
-  <div class="collapse navbar-collapse filter-collapse" id="filterDropdown">
-    <ul class="navbar-nav pl-4">
-      <li class="nav-item">
-        <%= link_to  'Tous les établissements', filter: 'all'  %>
-      </li>
-      <% @categories.each do |category| %>
-        <li class="nav-item">
-          <%= link_to category.capitalize, filter: category %>
-    <!--   <%= check_box_tag category %>
-          <%= category %> -->
-        </li>
-      <% end %>
-    </ul>
+  <div class="blue-block category-establishment" type="filtre">
+    <% @categories.each do |category| %>
+        <%= link_to category.capitalize, filter: category %>
+    <% end %>
   </div>
 
   <div id="map"
