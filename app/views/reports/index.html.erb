@@ -11,10 +11,16 @@
     <% @reports.each do |report| %>
 
     <div class="card-new">
-      <div class="card-image"></div>
+      <div class="card-image">
+        <% if report.photo.attached? %>
+        <%= cl_image_tag report.photo.key %>
+      <% else %>
+        <img src="https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg" class="p-1" />
+      <% end %>
+      </div>
         <div class="card-text">
           <h2><%= report.title %></h2>
-          <p>Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.</p>
+          <p><%= report.content %></p>
         </div>
         <div class="card-stats">
           <div class="return">
