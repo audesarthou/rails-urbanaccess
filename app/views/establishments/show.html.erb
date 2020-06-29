@@ -4,7 +4,7 @@
 
       <div class="d-flex pictures">
         <% if @establishment.photos.attached? %>
-          <%= cl_image_tag @establishment.photos.first.key, height: 160, width: 172, crop: :fill %>
+          <%= cl_image_tag @establishment.photos.first.key, height: 160, width: 172, crop: :fill, class: "img-left" %>
         <% else %>
           <%= image_tag "loco_by_jems_1.jpg", class: "img-left", height: "160px"%>
         <% end %>
@@ -24,7 +24,10 @@
 
         <div class="d-flex justify-content-between">
           <div>
-            <h5><%= @establishment.name %></h5>
+            <div>
+              <h5><%= @establishment.name %></h5>
+              <span class="blue-line"></span>
+            </div>
             <div class="d-flex">
               <ul class="rounded-circle d-flex">
                <% unless @establishment.service_average.nil? %>
@@ -56,10 +59,10 @@
           </div>
         </div>
 
-        <div class="card-show_description">
+        <div class="card-show_info">
           <p><i class="fas fa-phone"></i><%= @establishment.phone_number %></p>
           <p><i class="fas fa-map-marked-alt"></i><%= @establishment.address %></p>
-          <p><%= @establishment.description %></p>
+          <p class="card-show_description" ><%= @establishment.description %></p>
           <div class="establishment-show_button d-flex justify-content-around">
             <%= link_to "Retour à la liste" , establishments_path, class: "button" %>
             <%= link_to "Comment s'y rendre" , establishment_path(@establishment, anchor: "map-show"), class: "button" %>
@@ -92,21 +95,30 @@
         <% end %>
     </div>
     <% end %>
-
-    <div class="new_review card px-3 py-1 mb-3">
-      <h6>Ecrire un nouveau commentaire</h6>
-      <%= simple_form_for [@establishment, @review] do |f| %>
-        <%= f.input :content %>
-        <%= f.input :access_rating, collection: 0..5 %>
-        <%= f.input :service_rating %>
-        <%= f.submit 'Envoyer', class: "button"%>
-      <% end %>
-    </div>
-    <div id="map-show"
-         style="width: 100%; height: 40vh;"
-         data-marker="<%= @marker.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-         class="mb-5">
-    </div>
   </div>
+
+    <div class="new_review py-1 mb-3">
+      <h6>Ecrire un avis</h6>
+      <div class="container">
+        <%= simple_form_for [@establishment, @review], defaults: { input_html: { class: 'new-form' } } do |f| %>
+          <%= f.input :content %>
+          <%= f.input :access_rating, collection: 0..5, label_html: { class: 'new-form_label' }  %>
+          <%= f.input :service_rating, label_html: { class: 'new-form_label' } %>
+          <%= f.submit 'Envoyer', class: "button"%>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div id="map-show"
+           style="width: 100%; height: 40vh;"
+           data-marker="<%= @marker.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+           class="mb-5">
+      </div>
+
+    </div>
+
 </div>
