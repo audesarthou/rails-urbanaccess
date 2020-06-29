@@ -296,8 +296,19 @@ francaiscgr.photos.attach([var1, var2, var3])
 francaiscgr.save!
 
 puts "Create reports"
-Report.create!(title: "Accessibilité trotoirs Caudéran", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
-Report.create!(title: "Accessibilité trotoirs Chartrons", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
-Report.create!(title: "Accessibilité trotoirs Gambetta", content: "Travaux de rénovation nécessaires pour que les usagers puissent de nouveau emprunter le trotoir en toute sécurité.", location: "Caudéran", progress: "", user: coco)
-
+trottoirstravaux = Report.new(title: "Travaux trottoirs", content: "Des travaux de réaménagement des trottoirs ont lieu actuellement rue du Bocage et empêche tout passage.", location: "Bordeaux", progress: "", user: coco)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593358293/Urban_access/reports/reports-trottoirs_travaux_yp05pq.jpg")
+var1 = {io: file1, filename: "reportstrottoirstravaux.jpg", content_type: "image/jpg"}
+trottoirstravaux.photo.attach(var1)
+trottoirstravaux.save!
+trotinettes = Report.new(title: "Trottoir encombré", content: "Je signale qu'un stationnement sauvage de trotinettes en libre service rend difficile la circulation sur le trottoir Place Gambetta.", location: "Bordeaux", progress: "", user: coco)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593358277/Urban_access/reports/reports-trotinettes_hygi7b.jpg")
+var1 = {io: file1, filename: "reportstrotinettes.jpg", content_type: "image/jpg"}
+trotinettes.photo.attach(var1)
+trotinettes.save!
+gare = Report.new(title: "Accès à la gare", content: "La dernière fois que j'ai dû me rendre à la gare, j'ai remarqué l'absence de moyen d'accès adapté pour accéder au quai.", location: "Bordeaux", progress: "", user: coco)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593358286/Urban_access/reports/reports-gare_xtzdlq.jpg")
+var1 = {io: file1, filename: "reportstrotinettes.jpg", content_type: "image/jpg"}
+gare.photo.attach(var1)
+gare.save!
 puts "Finish!"
