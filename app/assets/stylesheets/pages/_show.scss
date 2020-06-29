@@ -62,7 +62,7 @@
   }
 
 }
-.card-show_description {
+.card-show_info {
   justify-content: space-between;
   .button {
     margin-bottom: 5px;
@@ -73,6 +73,9 @@
   i {
     margin-right: 10px;
   }
+}
+.card-show_description {
+  font-style: italic;
 }
 .establishment-show_button {
   width: 100%;
@@ -88,6 +91,7 @@
   height: 40px;
   border-radius: 50%;
   padding: 3px;
+  object-fit: contain;
   }
 
 }
