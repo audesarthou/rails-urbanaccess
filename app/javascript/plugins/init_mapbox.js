@@ -96,10 +96,6 @@ const initMapbox = () => {
   fetch("https://opendata.bordeaux-metropole.fr/api/records/1.0/search/?dataset=bor_sigquartiers&q=")
     .then(response => response.json())
     .then((data) => {
-      // data.records.forEach((element) => {
-      // console.log(element.fields.geometrie);
-
-
 
       map.on('load', function() {
         data.records.forEach((element) => {
@@ -110,7 +106,7 @@ const initMapbox = () => {
               'geometry': element.fields.geometrie
               }
           })
-
+          console.log(element.fields.nom)
           map.addLayer({
           'id': element.fields.nom,
           'type': 'fill',
@@ -127,9 +123,6 @@ const initMapbox = () => {
 
 
       })
-      // })
-
-
 
 
     });
