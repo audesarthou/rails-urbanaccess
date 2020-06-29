@@ -19,10 +19,15 @@
 }
 
 .card-image {
-  background: url("https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg");
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  background-size: cover;
+  width: 100%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-stats a {

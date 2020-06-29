@@ -299,7 +299,7 @@ file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593358293/
 var1 = {io: file1, filename: "reportstrottoirstravaux.jpg", content_type: "image/jpg"}
 trottoirstravaux.photo.attach(var1)
 trottoirstravaux.save!
-trotinettes = Report.new(title: "Trottoir emcombré", content: "Je signale qu'un stationnement sauvage de trotinettes en libre service rend difficile la circulation sur le trottoir Place Gambetta.", location: "Bordeaux", progress: "", user: coco)
+trotinettes = Report.new(title: "Trottoir encombré", content: "Je signale qu'un stationnement sauvage de trotinettes en libre service rend difficile la circulation sur le trottoir Place Gambetta.", location: "Bordeaux", progress: "", user: coco)
 file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593358277/Urban_access/reports/reports-trotinettes_hygi7b.jpg")
 var1 = {io: file1, filename: "reportstrotinettes.jpg", content_type: "image/jpg"}
 trotinettes.photo.attach(var1)
