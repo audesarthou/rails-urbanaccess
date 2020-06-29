@@ -7,7 +7,7 @@
    <%= simple_form_for :search, url: establishments_path, method: :get do |f| %>
     <%= f.input :location, label: false, placeholder: 'Où allons nous ?', input_html: { class: 'my-form' }%>
     <%= f.input :activity, label: false, as: :select, collection: Establishment.categories.to_a[0...-2].to_h.keys, include_blank: true, input_html: { class: 'my-form select2', style: " width: 190px;"} %>
-    <%= f.button :submit, "C'est parti !", class: "button mb-4" %>
+    <%= f.button :submit, "C'est parti !", class: "button mb-3" %>
    <% end %>
 
   <div class="activities_options">
