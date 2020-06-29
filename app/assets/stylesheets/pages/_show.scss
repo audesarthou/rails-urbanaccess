@@ -49,16 +49,18 @@
   margin-bottom: 15px;
   h5 {
     font-size: 24px;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     color: $dark-blue;
-  }
-  p {
-    font-size: 16px;
-    margin-top: 5px;
-    margin-left: 6px;
   }
   a {
     font-size: 12px;
+  }
+  .blue-line {
+    display: block;
+    height: 5px;
+    width: 45px;
+    border-radius: 60px;
+    background-color: $blue;
   }
 
 }
@@ -73,9 +75,14 @@
   i {
     margin-right: 10px;
   }
+  p {
+    font-size: 14px;
+  }
 }
 .card-show_description {
   font-style: italic;
+  font-size: 16px;
+  margin: 15px 0;
 }
 .establishment-show_button {
   width: 100%;
@@ -85,6 +92,8 @@
   flex-direction: column;
   span {
     font-size: 14px;
+    font-weight: bold;
+    color: $dark-blue;
   }
   img {
   width: 40px;
@@ -96,3 +105,11 @@
 
 }
 
+.new_review {
+  h6 {
+    background-color: $blue;
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
+}
