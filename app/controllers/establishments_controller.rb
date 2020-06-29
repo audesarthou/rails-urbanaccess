@@ -17,7 +17,6 @@ class EstablishmentsController < ApplicationController
       @establishments = @establishments.where(category: params["filter"].to_sym)
     end
 
-
     @markers = @establishments.geocoded.map do |establishment|
       {
         lat: establishment.latitude,
@@ -27,6 +26,7 @@ class EstablishmentsController < ApplicationController
         description: establishment.description
       }
     end
+
   end
 
   def new

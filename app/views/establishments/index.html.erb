@@ -13,7 +13,6 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
   <div class="container mt-2">
-
   <% @establishments.each do |establishment| %>
     <%= link_to establishment_path(establishment) do %>
      <div class="card-product mb-2">
