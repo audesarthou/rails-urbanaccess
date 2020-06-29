@@ -11,6 +11,7 @@ class ReportsController < ApplicationController
     else
       @reports = Report.all
     end
+
   end
 
 
@@ -26,8 +27,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    # @reports = Report.all
     # @report = Report.find(params[:id])
+    # @report = Report.new
   end
 
   private

@@ -1,10 +1,11 @@
 <div class="wrapper">
-  <div class="blue-block lg-blue-block mb-3">
-    <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline my-2 my-lg-0 ml-3' } do |f| %>
-    <%= f.input :title, label: false ,input_html: {class: "my-form sm-input"} %>
-    <%= f.submit "Search", class: "button" %>
-    <% end %>
-  </div>
+    <div class="blue-block-report lg-blue-block mb-3 d-flex">
+      <a href="#far"><i class="far fa-file-alt"></i></a>
+      <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline ml-4' } do |f| %>
+      <%= f.input :title, label: false, input_html: { class: 'new-form-report'} %>
+      <%= f.submit "Recherche", class: "button" %>
+      <% end %>
+    </div>
 
   <div class="container hover">
     <% if @reports %>
@@ -13,21 +14,22 @@
     <div class="card-new">
       <div class="card-image">
         <% if report.photo.attached? %>
-        <%= cl_image_tag report.photo.key %>
-      <% else %>
-        <img src="https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg" class="p-1" />
-      <% end %>
+          <%= cl_image_tag report.photo.key %>
+        <% else %>
+          <img src="https://www.lemonde.fr/blog/transports/wp-content/uploads/sites/26/2013/09/Potelets-Marseille-1024x768.jpg" class="p-1" />
+        <% end %>
       </div>
-        <div class="card-text">
-          <h2><%= report.title %></h2>
-          <p><%= report.content %></p>
+      <div class="card-text">
+        <h2><%= report.title %></h2>
+        <p><%= report.content %></p>
+      </div>
+      <div class="card-stats">
+        <div class="return">
+          <a class="return" href="mailto:contact@service_urbanisme_bordeaux.com">Renvoyer</a>
         </div>
-        <div class="card-stats">
-          <div class="return">
-            <%= link_to "Renvoyer", reports_path %>
-          </div>
-        <div class="stat border">
-          <div class="value">245</div>
+        <div class="stat border-left border-right">
+          <div class="value">250</div>
+
           <div class="type">vues</div>
         </div>
         <div class="stat">
@@ -37,15 +39,21 @@
       </div>
     </div>
     <% end %>
-  <% end %>
-  <div class="container title">
-    <h5>Faire remonter<br>un nouveau signalement</h5>
-    <%= simple_form_for @report do |f| %>
-      <%= f.input :title, input_html: { class: "my-form"} %>
-      <%= f.input :content, input_html: { maxlength: 150, class: "my-form" } %>
-      <%= f.input :location, input_html: { class: "my-form"} %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit 'Signaler mon problème', class: "button"%>
     <% end %>
   </div>
+
+  <div class="new_review py-1 mb-3">
+    <h6>Remonter un nouveau signalement</h6>
+      <div class="container">
+        <%= simple_form_for @report do |f| %>
+          <a name="far"><%= f.input :title, input_html: { class: 'new-form'} %></a>
+          <%= f.input :content, input_html: { class: 'new-form'} %>
+          <%= f.input :location, input_html: { class: 'new-form'} %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit 'Envoyer', class: "button"%>
+        <% end %>
+      </div>
+  </div>
+
 </div>
+
