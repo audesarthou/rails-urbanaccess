@@ -27,25 +27,40 @@
             <h5><%= @establishment.name %></h5>
             <div class="d-flex">
               <ul class="rounded-circle d-flex">
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
+               <% unless @establishment.service_average.nil? %>
+                  <% count = 0 %>
+                  <% while count < @establishment.service_average %>
+                    <li><i class="fas fa-circle"></i></li>
+                    <% count += 1 %>
+                  <% end %>
+                <% end %>
               </ul>
               <p><small> <%= @establishment.reviews.count %> avis</small></p>
             </div>
           </div>
           <div id="handi-picto">
-            <%= image_tag "picto_handi.png", alt: "alttext" %>
+            <% color = "#128AB2" %>
+            <% unless @access_average.nil? %>
+              <% if @access_average >= 4 %>
+               <% color = "green" %>
+              <% elsif @access_average >= 3%>
+                <% color = "orange" %>
+              <% else %>
+                <% color = "red" %>
+              <% end %>
+
+            <% end %>
+            <%= image_tag "picto_handi.png", alt: "alttext", style: " border: 3px solid #{color};" %>
             <span><%= @access_average ? @access_average : "-" %> / 5 </span>
 
           </div>
         </div>
 
-        <div class="card-show_description d-flex">
+        <div class="card-show_description">
+          <p><i class="fas fa-phone"></i><%= @establishment.phone_number %></p>
+          <p><i class="fas fa-map-marked-alt"></i><%= @establishment.address %></p>
           <p><%= @establishment.description %></p>
-          <div class="establishment-show_button">
+          <div class="establishment-show_button d-flex justify-content-around">
             <%= link_to "Retour à la liste" , establishments_path, class: "button" %>
             <%= link_to "Comment s'y rendre" , establishment_path(@establishment, anchor: "map-show"), class: "button" %>
           </div>

@@ -1,8 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 
 const markerColor = (marker) => {
-  const params = { color: ' ' }
-  if (marker.average < 3) {
+  const params = { color: '#128AB2' }
+
+  if (marker.average === null) {
+    return params
+  } else if (marker.average < 3) {
     params.color = 'red'
     return params;
   } else if (marker.average < 4) {

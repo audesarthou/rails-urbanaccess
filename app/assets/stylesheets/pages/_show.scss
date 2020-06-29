@@ -48,16 +48,19 @@
   padding: 5px 10px;
   margin-bottom: 15px;
   h5 {
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 0;
     color: $dark-blue;
   }
   p {
-    font-size: 12px;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 6px;
   }
   a {
     font-size: 12px;
   }
+
 }
 .card-show_description {
   justify-content: space-between;
@@ -65,24 +68,26 @@
     margin-bottom: 5px;
     width: 145px;
     text-align: center;
+    margin-top: 10px;
   }
-  p {
-    margin-bottom: 0;
+  i {
+    margin-right: 10px;
   }
 }
 .establishment-show_button {
-  width: 150px;
-  align-self: flex-end;
+  width: 100%;
 }
 #handi-picto {
   display: flex;
   flex-direction: column;
   span {
-    font-size: 10px;
+    font-size: 14px;
   }
   img {
-  width: 17px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 3px;
   }
 
 }
