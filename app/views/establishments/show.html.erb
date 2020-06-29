@@ -3,10 +3,19 @@
     <div class="card-show">
 
       <div class="d-flex pictures">
-        <%= image_tag "loco_by_jems_1.jpg", class: "img-left", height: "160px"%>
+        <% if @establishment.photos.attached? %>
+          <%= cl_image_tag @establishment.photos.first.key, height: 160, width: 172, crop: :fill, class: "img-left" %>
+        <% else %>
+          <%= image_tag "loco_by_jems_1.jpg", class: "img-left", height: "160px"%>
+        <% end %>
         <div class="img-right">
-          <%= image_tag "loco_by_jems_2.jpg", alt: "alttext", class: "", height: "80px" %>
-          <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
+          <% if @establishment.photos.attached? %>
+            <%= cl_image_tag @establishment.photos[1].key, height: 80, width: 166, crop: :fill if @establishment.photos[1].present? %>
+            <%= cl_image_tag @establishment.photos[2].key, height: 80, width: 166, crop: :fill if @establishment.photos[2].present? %>
+          <% else %>
+            <%= image_tag "loco_by_jems_2.jpg", alt: "alttext", class: "", height: "80px" %>
+            <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
+          <% end %>
         </div>
         <%= image_tag "Icon/heart.svg", alt: "alttext", class: "icon-heart" %>
       </div>
@@ -15,27 +24,46 @@
 
         <div class="d-flex justify-content-between">
           <div>
-            <h5><%= @establishment.name %></h5>
+            <div>
+              <h5><%= @establishment.name %></h5>
+              <span class="blue-line"></span>
+            </div>
             <div class="d-flex">
               <ul class="rounded-circle d-flex">
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
-                <li><i class="fas fa-circle"></i></li>
+               <% unless @establishment.service_average.nil? %>
+                  <% count = 0 %>
+                  <% while count < @establishment.service_average %>
+                    <li><i class="fas fa-circle"></i></li>
+                    <% count += 1 %>
+                  <% end %>
+                <% end %>
               </ul>
-              <p><small> 88 avis</small></p>
+              <p><small> <%= @establishment.reviews.count %> avis</small></p>
             </div>
           </div>
           <div id="handi-picto">
-          <%= image_tag "picto_handi.png", alt: "alttext" %>
-          <span><%= @establishment.access_average %> </span>
+            <% color = "#128AB2" %>
+            <% unless @access_average.nil? %>
+              <% if @access_average >= 4 %>
+               <% color = "green" %>
+              <% elsif @access_average >= 3%>
+                <% color = "orange" %>
+              <% else %>
+                <% color = "red" %>
+              <% end %>
+
+            <% end %>
+            <%= image_tag "picto_handi.png", alt: "alttext", style: " border: 3px solid #{color};" %>
+            <span><%= @access_average ? @access_average : "-" %> / 5 </span>
+
           </div>
         </div>
 
-        <div class="card-show_description d-flex">
-          <p><%= @establishment.description %></p>
-          <div class="establishment-show_button">
+        <div class="card-show_info">
+          <p><i class="fas fa-phone"></i><%= @establishment.phone_number %></p>
+          <p><i class="fas fa-map-marked-alt"></i><%= @establishment.address %></p>
+          <p class="card-show_description" ><%= @establishment.description %></p>
+          <div class="establishment-show_button d-flex justify-content-around">
             <%= link_to "Retour à la liste" , establishments_path, class: "button" %>
             <%= link_to "Comment s'y rendre" , establishment_path(@establishment, anchor: "map-show"), class: "button" %>
           </div>
@@ -44,15 +72,53 @@
 
       </div>
 
-
-
     </div>
-
-    <div id="map-show"
-         style="width: 100%; height: 40vh;"
-         data-marker="<%= @marker.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-         class="mb-5">
+    <% if @reviews %>
+      <div class="reviews">
+        <% @reviews.each do |review| %>
+          <div class="card-review p-2 mb-2">
+            <div class="d-flex justify-content-between card-review_header">
+              <h6><strong><%= review.user.first_name %></strong>, le <%= review.created_at.strftime("%d/%m/%Y") %> </h6>
+              <div class="review-card_rating d-flex">
+                <div class="access_rating d-flex">
+                  <%= image_tag "picto_handi.png", alt: "alttext" %>
+                  <p><%= review.access_rating %>/5 </p>
+                </div>
+                <div class="service_rating d-flex">
+                  <%= image_tag "picto_loisirs.svg", alt: "alttext" %>
+                  <p><%= review.service_rating ? review.service_rating : "-" %>/5</p>
+                </div>
+              </div>
+            </div>
+            <p class="review-content"><%= review.content %></p>
+          </div>
+        <% end %>
     </div>
+    <% end %>
   </div>
+
+    <div class="new_review py-1 mb-3">
+      <h6>Ecrire un avis</h6>
+      <div class="container">
+        <%= simple_form_for [@establishment, @review], defaults: { input_html: { class: 'new-form' } } do |f| %>
+          <%= f.input :content %>
+          <%= f.input :access_rating, collection: 0..5, label_html: { class: 'new-form_label' }  %>
+          <%= f.input :service_rating, label_html: { class: 'new-form_label' } %>
+          <%= f.submit 'Envoyer', class: "button"%>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div id="map-show"
+           style="width: 100%; height: 40vh;"
+           data-marker="<%= @marker.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+           class="mb-5">
+      </div>
+
+    </div>
+
 </div>

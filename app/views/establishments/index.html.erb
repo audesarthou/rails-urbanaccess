@@ -1,21 +1,8 @@
 <div class="wrapper">
-
-  <div class="blue-block" type="filtre" data-toggle="collapse" data-target="#filterDropdown" aria-controls="filterDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <p>Filtres</p>
-  </div>
-  <div class="collapse navbar-collapse filter-collapse" id="filterDropdown">
-    <ul class="navbar-nav pl-4">
-      <li class="nav-item">
-        <%= link_to  'Tous les établissements', filter: 'all'  %>
-      </li>
-      <% @categories.each do |category| %>
-        <li class="nav-item">
-          <%= link_to category.capitalize, filter: category %>
-    <!--   <%= check_box_tag category %>
-          <%= category %> -->
-        </li>
-      <% end %>
-    </ul>
+  <div class="blue-block category-establishment" type="filtre">
+    <% @categories.each do |category| %>
+        <%= link_to category.capitalize, filter: category %>
+    <% end %>
   </div>
 
   <div id="map"
@@ -28,17 +15,25 @@
   <% @establishments.each do |establishment| %>
     <%= link_to establishment_path(establishment) do %>
      <div class="card-product mb-2">
+      <% if establishment.photos.attached? %>
+        <%= cl_image_tag establishment.photos.first.key, height: 100, width: 141, crop: :fill %>
+      <% else %>
         <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
+      <% end %>
+
         <div class="card-product-infos">
           <h3><%= establishment.name %></h3>
           <div class="card-product-top-infos">
             <ul class="rounded-circle list-inline">
-              <li><i class="fas fa-circle"></i></li>
-              <li><i class="fas fa-circle"></i></li>
-              <li><i class="fas fa-circle"></i></li>
-              <li><i class="fas fa-circle"></i></li>
-              <li><i class="fas fa-circle"></i></li>
-              <p>88 avis</p>
+              <% unless establishment.service_average.nil? %>
+                <% count = 0 %>
+                <% while count < establishment.service_average %>
+                  <li><i class="fas fa-circle"></i></li>
+                  <% count += 1 %>
+                <% end %>
+              <% end %>
+
+              <p><%= establishment.reviews.count %> avis</p>
             </ul>
           </div>
         </div>

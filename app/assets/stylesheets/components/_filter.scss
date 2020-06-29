@@ -1,0 +1,20 @@
+.category-establishment {
+  overflow: scroll;
+  a {
+  width: 120px;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 10px;
+  border: 2px solid white;
+  text-align: center;
+  opacity: 0.7;
+  text-decoration: none;
+  margin: 0 10px;
+  }
+  a:hover {
+    opacity: 1;
+    color: $dark-blue;
+    background-color: white;
+    font-weight: bold;
+  }
+}

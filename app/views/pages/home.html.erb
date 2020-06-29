@@ -16,8 +16,8 @@
   <div class="home_search-block">
    <%= simple_form_for :search, url: establishments_path, method: :get do |f| %>
     <%= f.input :location, label: false, placeholder: 'Où allons nous ?', input_html: { class: 'my-form' }%>
-    <%= f.input :activity, label: false, collection: Establishment.categories.to_a[0...-2].to_h.keys, input_html: { class: 'my-form', style: " width: 190px;" }, prompt: "Que veux-tu faire ?" %>
-    <%= f.button :submit, "C'est parti !", class: "button mb-4" %>
+    <%= f.input :activity, label: false, as: :select, collection: Establishment.categories.to_a[0...-2].to_h.keys, include_blank: true, input_html: { class: 'my-form select2', style: " width: 190px;"} %>
+    <%= f.button :submit, "C'est parti !", class: "button mb-3" %>
    <% end %>
 
   <div class="activities_options">
@@ -34,7 +34,7 @@
       <% end %>
     </div>
     <div class="home-picto">
-      <%= link_to "https://handiplanet.com/", target: "_blank" do %>
+      <%= link_to travel_tips_path do %>
       <%= image_tag "picto_voyages.svg", alt: "voyages"%>
       <p>Voyages</p>
       <% end %>
