@@ -1,12 +1,12 @@
 <!-- <link rel="stylesheet" href="node_modules/splash-screen/dist/splash-screen-[theme].min.css">
 <script src="node_modules/splash-screen/dist/splash-screen-[theme].min.js"></script> -->
 
-<!-- <div class="homepage-splash" id="homesplash">
+<div class="homepage-splash" id="homesplash">
   <div class="homepage-splash-logo">
-    <%#= image_tag "logo.svg", alt: "logo" %>
+    <%= image_tag "logo.svg", alt: "logo" %>
   </div>
     <p>Vous accompagner au quotidien pour aller toujours plus loin !</p>
-</div> -->
+</div>
 <div class="wrapper">
 
   <div class="blue-block">
@@ -62,10 +62,17 @@
 
 </div>
 
-<!-- <script>
-  const theme = homesplash['splash-screen-[theme]'];
-    //enable with no arg.
-    theme.enable();
-    //destroy the splash
-    theme.destroy();
-</script> -->
+<script>
+  const homesplash = document.getElementById('homesplash');
+
+  const removeReally = (homesplash) => {
+    homesplash.remove();
+  }
+
+  const removeHomesplash = (homesplash) => {
+    setTimeout(removeReally(homesplash), 5000);
+  }
+
+  window.addEventListener('click', removeHomesplash(homesplash), false);
+
+</script>

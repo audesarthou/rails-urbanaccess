@@ -77,24 +77,11 @@ searchInput.addEventListener('focus', (event) => {
 
 const removeDisplayNone = (navLogo) => {
   navLogo.classList.add("navbar-present");
-  console.log("hello");
 }
 
 searchInput.addEventListener('blur', (event) => {
   setTimeout(removeDisplayNone(navLogo), 5000);
 });
-
-
-// A refacto
-// trouver l'imput de recherche
-// mettre un addEventListener avec l'event focus
-// trouver la dive avec le logo
-// hide la div avec le logo
-
-// Bonus ajouter une transition en css
-
-
-
 
 
 });
