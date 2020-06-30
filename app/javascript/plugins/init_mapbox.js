@@ -62,7 +62,6 @@ const findDistrictMarkers = (district, markers) => {
 
 
 const computeAverageDistrict = (districtMarkers) => {
-  console.log(districtMarkers)
   let averageTotal = 0;
 
   districtMarkers.forEach((marker) => {
@@ -140,7 +139,7 @@ const initMapbox = () => {
               const averageDistrict = computeAverageDistrict(districtMarkers)
               colorDistrict = setDistrictColor(averageDistrict)
             }
-            console.log(colorDistrict)
+
             map.addSource(element.fields.nom, {
               'type': 'geojson',
               'data': {
@@ -156,7 +155,7 @@ const initMapbox = () => {
             'layout': {},
             'paint': {
             'fill-color': colorDistrict,
-            'fill-opacity': 0.8
+            'fill-opacity': 0.5
             }
           });
 
