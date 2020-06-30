@@ -16,6 +16,8 @@ const markerColor = (marker) => {
 
 const initMapboxShow = () => {
   const mapElement = document.getElementById('map-show');
+  const marker = JSON.parse(mapElement.dataset.marker);
+  console.log(marker)
 
   // Geolocation
   const geolocate = new mapboxgl.GeolocateControl({
@@ -43,7 +45,7 @@ const initMapboxShow = () => {
     console.log('A geolocate event has occurred.')
     });
 
-    const marker = JSON.parse(mapElement.dataset.marker);
+
 
       new mapboxgl.Marker( markerColor(marker))
         .setLngLat([ marker.lng, marker.lat ])

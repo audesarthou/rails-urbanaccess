@@ -49,6 +49,7 @@ var3 = {io: file3, filename: "loco3.jpg", content_type: "image/jpg"}
 loco.photos.attach([var1, var2, var3])
 loco.save!
 
+
 exploit = Establishment.new(name: "L'Exploit", address: "29 quai des Chartrons Bordeaux", phone_number: "05 57 59 92 82", description: "Un bistrot comme il en reste peut ! Les patrons adorables et cuisine délicieuse.", category: :restaurant, district: chartrons)
 file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593172466/Urban_access/restaurants/lexploit/lexploit_1_yiugne.jpg")
 file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593172466/Urban_access/restaurants/lexploit/lexploit_2_cwyhkd.jpg")
