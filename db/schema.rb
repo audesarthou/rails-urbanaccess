@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_102058) do
+ActiveRecord::Schema.define(version: 2020_06_29_202736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(version: 2020_06_24_102058) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "establishments", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -58,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_102058) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
+    t.bigint "district_id"
+    t.index ["district_id"], name: "index_establishments_on_district_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -119,6 +127,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_102058) do
 
   add_foreign_key "accessibilities", "establishments"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "establishments", "districts"
   add_foreign_key "favorites", "establishments"
   add_foreign_key "favorites", "users"
   add_foreign_key "reports", "users"

@@ -17,16 +17,17 @@ class EstablishmentsController < ApplicationController
       @establishments = @establishments.where(category: params["filter"].to_sym)
     end
 
-
     @markers = @establishments.geocoded.map do |establishment|
       {
         lat: establishment.latitude,
         lng: establishment.longitude,
         average: establishment.access_average,
         name: establishment.name,
-        description: establishment.description
+        description: establishment.description,
+        district: establishment.district.name
       }
     end
+
   end
 
   def new
