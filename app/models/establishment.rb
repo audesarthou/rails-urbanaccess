@@ -2,6 +2,7 @@ class Establishment < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :accessibilities, dependent: :destroy
+  belongs_to :district
   has_many_attached :photos
   validates :name, :address, :description, :category, presence: true
   validates :name, uniqueness: { scope: :address }

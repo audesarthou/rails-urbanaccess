@@ -18,3 +18,12 @@
     font-weight: bold;
   }
 }
+
+.category-establishment::-webkit-scrollbar {
+  display: none;
+}
+
+.category-establishment {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

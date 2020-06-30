@@ -11,6 +11,20 @@
     font-size: 18px;
   }
 }
+
+.blue-block-filters {
+  background-color: $blue;
+  height: 50px;
+  display: flex;
+  width: 600px;
+  align-items: center;
+  p {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
 .lg-blue-block {
   height: 45px;
  .form-group {
