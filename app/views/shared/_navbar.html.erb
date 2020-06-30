@@ -1,15 +1,23 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-lewagon">
 
-  <div id="research">
+ <!--  <div id="hidden">
     <form id="form-search" action="">
       <input type="text" id="search" name="" placeholder="recherche">
       <i class="fas fa-search" id="bt-search"></i>
       <i class="fas fa-search" id="bt-close"></i>
-    </form>
-  </div>
 
+    </form>
+  </div> -->
+
+  <div>
+    <div class="searchbar">
+      <div>
+        <input type="text" placeholder="recherche" required>
+      </div>
+    </div>
+  </div>
   <%= link_to root_path , class: "navbar-brand" do %>
-    <%= image_tag "logo.svg", alt: "logo" %>
+    <%= image_tag "logo.svg", alt: "logo", class: "navbar-present" %>
   <% end %>
 
 
@@ -18,7 +26,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mt-3">
+    <ul class="navbar-nav mt-3 mb-0">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="far fa-user"></i> Mon profil
