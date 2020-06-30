@@ -1,13 +1,55 @@
 .mapboxgl-marker {
-  background-image: url('theater-r.png');
   background-size: cover;
   height: 35px;
   width: 25px;
   cursor: pointer;
 }
-.mapboxgl-marker svg {
-  visibility: hidden;
+
+.marker-theatre-red  {
+  background-image: url('marker-theater-r.png');
 }
-// .mapboxgl-marker circle {
+.marker-theatre-orange {
+  background-image: url('marker-theater-o.png');
+}
+.marker-theatre-green {
+  background-image: url('marker-theater-g.png');
+}
+
+.marker-bar-red  {
+  background-image: url('marker-bar-r.svg');
+}
+.marker-bar-orange {
+  background-image: url('marker-bar-o.png');
+}
+.marker-bar-green {
+  background-image: url('marker-bar-g.png');
+}
+
+.marker-restaurant-red  {
+  background-image: url('marker-restaurant-r.png');
+}
+.marker-restaurant-orange {
+  background-image: url('marker-restaurant-o.png');
+}
+.marker-restaurant-green {
+  background-image: url('marker-restaurant-g.png');
+}
+
+.marker-cinema-red  {
+  background-image: url('marker-cinema-r.png');
+}
+.marker-cinema-orange {
+  background-image: url('marker-cinema-o.png');
+}
+.marker-cinema-green {
+  background-image: url('marker-cinema-g.png');
+}
+
+
+// .mapboxgl-marker svg {
 //   visibility: hidden;
 // }
+
+.mapboxgl-marker circle {
+  // visibility: hidden;
+}

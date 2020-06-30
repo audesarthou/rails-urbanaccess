@@ -84,17 +84,19 @@ const setColor = (average) => {
   if (average === null) {
     return '#128AB2'
   } else if (average < 3) {
-    return '#FF0102';
+    return 'red';
   } else if (average < 4) {
-    return '#FFA500';
+    return 'orange';
   } else {
-    return '#048004';
+    return 'green';
   }
 }
 
 
 const initMapbox = () => {
   let mapElement
+
+  // establishments index
   if (document.getElementById('map')) {
     mapElement = document.getElementById('map');
 
@@ -114,47 +116,36 @@ const initMapbox = () => {
       const bounds = new mapboxgl.LngLatBounds();
       markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
 
-
       fetch("https://opendata.bordeaux-metropole.fr/api/records/1.0/search/?dataset=bor_sigquartiers&q=")
         .then(response => response.json())
         .then((data) => {
-
           map.on('load', function() {
-
             data.records.forEach((element) => {
               let colorDistrict = '#128AB2';
               const districtMarkers = findDistrictMarkers(element.fields.nom, markers)
               if (districtMarkers.length !== 0) {
                 const averageDistrict = computeAverageDistrict(districtMarkers)
                 colorDistrict = setColor(averageDistrict)
-              }
-
-              map.addSource(element.fields.nom, {
-                'type': 'geojson',
-                'data': {
-                  'type': 'Feature',
-                  'geometry': element.fields.geometrie
-                  }
-              })
-
-              map.addLayer({
-              'id': element.fields.nom,
-              'type': 'fill',
-              'source': element.fields.nom,
-              'layout': {},
-              'paint': {
-              'fill-color': colorDistrict,
-              'fill-opacity': 0.5
-              }
-            });
-
-
+                }
+                map.addSource(element.fields.nom, {
+                  'type': 'geojson',
+                  'data': {
+                    'type': 'Feature',
+                    'geometry': element.fields.geometrie
+                    }
+                })
+                map.addLayer({
+                'id': element.fields.nom,
+                'type': 'fill',
+                'source': element.fields.nom,
+                'layout': {},
+                'paint': {
+                'fill-color': colorDistrict,
+                'fill-opacity': 0.5
+                }
+              });
             })
-
-
           })
-
-
         });
 
 
@@ -184,9 +175,6 @@ const initMapbox = () => {
 
 
       map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-
-
-
     };
 
     if (mapElement) { // only build a map if there's a div#map to inject into
@@ -196,24 +184,29 @@ const initMapbox = () => {
         style: 'mapbox://styles/mapbox/streets-v10',
       });
 
-
-
-
       map.addControl(geolocate);
       geolocate.on('geolocate', function() {
-      console.log('A geolocate event has occurred.')
+        console.log('A geolocate event has occurred.')
       });
 
       markers.forEach((marker) => {
-      new mapboxgl.Marker( { color: setColor(marker.average) })
+        const el = document.createElement('div');
+        const category = marker.category;
+        const color = setColor(marker.average)
+        el.className = `marker-${category}-${color}`;
+      new mapboxgl.Marker( el )
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-        .setHTML('<h3>' + marker.name + '</h3><p>' + marker.description + '</p>'))
+        .setHTML(`<a href="establishments/${marker.id}">
+          <h3> ${marker.name} </h3><p> ${marker.description} </p>
+          </a>`
+          ))
         .addTo(map);
       });
       fitMapToMarkers(map, markers);
 
     }
+  // establishments show
   } else if (document.getElementById('map-show')) {
     mapElement = document.getElementById('map-show');
     const marker = JSON.parse(mapElement.dataset.marker);
@@ -242,16 +235,15 @@ const initMapbox = () => {
       map.addControl(geolocate);
       geolocate.on('geolocate', function() {
       console.log('A geolocate event has occurred.')
-      });
-
-
-        // var el = document.createElement('div');
-        // el.className = 'marker';
-
-        new mapboxgl.Marker( { color: 'setColor(marker.average)' })
-          .setLngLat([ marker.lng, marker.lat ])
-          .addTo(map);
-      fitMapToMarker(map, marker);
+     });
+      const el = document.createElement('div');
+      const category = marker.category;
+      const color = setColor(marker.average)
+      el.className = `marker-${category}-${color}`;
+      new mapboxgl.Marker( el)
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(map);
+    fitMapToMarker(map, marker);
 
     }
   }
