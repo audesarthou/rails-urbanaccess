@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_06_30_085255) do
     t.string "address"
     t.string "phone_number"
     t.text "description"
-    t.string "category"
+    t.integer "category"
     t.float "access_average"
     t.float "service_average"
     t.float "living_space"
