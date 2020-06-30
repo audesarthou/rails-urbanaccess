@@ -2,7 +2,7 @@
     <div class="blue-block-report lg-blue-block mb-3 d-flex">
       <a href="#far"><i class="far fa-file-alt"></i></a>
       <%= simple_form_for :search, url: reports_path, method: "GET", html: { class: 'form-inline ml-4' } do |f| %>
-      <%= f.input :title, label: false, input_html: { class: 'new-form-report'} %>
+      <%= f.input :searchall, label: false, input_html: { class: 'new-form-report'} %>
       <%= f.submit "Recherche", class: "button" %>
       <% end %>
     </div>

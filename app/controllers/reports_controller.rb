@@ -5,15 +5,16 @@ class ReportsController < ApplicationController
     @report = Report.new
     @reports = Report.all
     if params[:search].present?
-      if params[:search][:title].present?
-        @reports = Report.search_by_title_and_content(params[:search][:title])
+      if params[:search][:searchall].present?
+        @reports = []
+        @reports << Report.find_by(location: params[:search][:searchall]) if !Report.find_by(location: params[:search][:searchall]).nil?
+        @reports << Report.find_by(title: params[:search][:searchall]) if !Report.find_by(title: params[:search][:searchall]).nil?
+        @reports << Report.find_by(content: params[:search][:searchall]) if !Report.find_by(content: params[:search][:searchall]).nil?
       end
     else
       @reports = Report.all
     end
-
   end
-
 
   def create
     @user = current_user
