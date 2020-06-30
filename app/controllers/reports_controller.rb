@@ -5,14 +5,20 @@ class ReportsController < ApplicationController
     @report = Report.new
     @reports = Report.all
     if params[:search].present?
-      if params[:search][:title].present?
-        @reports = Report.search_by_title_and_content(params[:search][:title])
+      if params[:search][:searchall].present?
+        @reports = []
+        @reports << Report.where("location ILIKE ?", "%#{params[:search][:searchall]}%")
+        @reports << Report.where("title ILIKE ?", "%#{params[:search][:searchall]}%")
+        @reports << Report.where("content ILIKE ?", "%#{params[:search][:searchall]}%")
+        @reports = @reports.flatten.compact.uniq
+        @reports
       end
+    # elsif params[:geocoder].present?
+    # @location = Location.near(params[:search], 50, :order => :distance)
     else
       @reports = Report.all
     end
   end
-
 
   def create
     @user = current_user
@@ -26,8 +32,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    # @reports = Report.all
     # @report = Report.find(params[:id])
+    # @report = Report.new
   end
 
   private

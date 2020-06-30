@@ -54,18 +54,48 @@ function setSearch(oEvent){
 }
 //Quand le DOm est dispo
 document.addEventListener('DOMContentLoaded',function(){
-  var oInput = document.forms["form-search"]["search"];
-  oInput.addEventListener('focus',setSearch)
-  oInput.addEventListener('blur',setSearch);
+  // var oInput = document.forms["form-search"]["search"];
+  // oInput.addEventListener('focus',setSearch)
+  // oInput.addEventListener('blur',setSearch);
 
-  document.getElementById("bt-search").addEventListener('click', function(oEvent){
-    oEvent.preventDefault();oInput.focus() ;
-  });
+  // document.getElementById("bt-search").addEventListener('click', function(oEvent){
+  //   oEvent.preventDefault();oInput.focus() ;
+  // });
 
-  document.getElementById("bt-close").addEventListener('click', function(oEvent){
-    oEvent.preventDefault();
-    oInput.form.classList.remove("search");
-    oInput.value ='';
-  });
+  // document.getElementById("bt-close").addEventListener('click', function(oEvent){
+  //   oEvent.preventDefault();
+  //   oInput.form.classList.remove("search");
+  //   oInput.value ='';
+  // });
+
+const searchInput = document.querySelector('.searchbar input');
+const navLogo = document.querySelector('.navbar-brand > img');
+console.log(navLogo);
+searchInput.addEventListener('focus', (event) => {
+  navLogo.classList.remove("navbar-present");
+});
+
+const removeDisplayNone = (navLogo) => {
+  navLogo.classList.add("navbar-present");
+  console.log("hello");
+}
+
+searchInput.addEventListener('blur', (event) => {
+  setTimeout(removeDisplayNone(navLogo), 5000);
+});
+
+
+// A refacto
+// trouver l'imput de recherche
+// mettre un addEventListener avec l'event focus
+// trouver la dive avec le logo
+// hide la div avec le logo
+
+// Bonus ajouter une transition en css
+
+
+
+
+
 });
 

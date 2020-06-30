@@ -3,93 +3,187 @@
   background-color: white;
   transition: 0.5s background-color ease;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  height: 62px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
   text-align: left;
   font-size: 23px;
+  background-color: white;
 }
 
 .dropdown-menu {
   border:none;
   font-size: 20px;
+  margin: 0px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 110px;
+// .navbar-lewagon .navbar-brand img {
+//   width: 110px;
+// }
+
+// .navbar-brand .d-none {
+//   padding: 5px 0px;
+// }
+
+.navbar-brand {
+  display: block;
+}
+
+.navbar-brand > img {
+  width: 0px;
+  height: 34px;
+}
+
+.navbar-present {
+  -webkit-transition: 300ms ease-out;
+  -moz-transition: 300ms ease-out;
+  -ms-transition: 300ms ease-out;
+  -o-transition: 300ms ease-out;
+  transition: 300ms ease-out;
+  width: 100px !important;
 }
 
 .navbar-nav {
-  height: 380px;
+  height: 383px;
+}
+
+.navbarDropdownMenuLink {
+  color: $blue;
+  margin: 0px;
 }
 
 .far {
-  color: $dark-blue;
+  color: $blue;
+  padding-left: 7px;
+  font-size: 22px;
 }
 
 .fas {
-  color: $dark-blue;
-}
-
-#form-search{
-  padding: 5px;
-  /* Pour éviter de faire apparaître le rectangle quand on clique sur le champ de recherche */
-  width: 30px;
-  height: 30px;
   color: $blue;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  -moz-transition: width .5s, border-radius .5s;
-  -o-transition: width .5s, border-radius .5s ;
-  -ms-transition: width .5s, border-radius .5s;
-  -webkit-transition: width .5s, border-radius .5s;
-  transition: width .5s, border-radius .5s;
+  padding-left: 7px;
+  font-size: 22px;
 }
 
-#search {
-  width: 0px;
-  height:20px;
-  margin:0;
-  padding:0;
-  background: white;
-  border:none;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+.fab {
+  color: $blue;
+  padding-left: 7px;
+  font-size: 22px;
+}
 
-  -moz-transition: width .5s;
-  -o-transition: width .5s;
-  -ms-transition: width .5s;
-  -webkit-transition: width .5s;
+.searchbar {
+  margin: 0px 20px;
+}
+
+.searchbar > div {
+  display: inline-block;
+  position: relative;
+
+}
+
+.searchbar > div:after {
+  content: "";
+  background: $blue;
+  width: 2px;
+  height: 13px;
+  position: absolute;
+  top: 18px;
+  right: -3px;
+  transform: rotate(135deg);
+  box-shadow: 1px 0 lightgrey;
+}
+
+.searchbar > div > input {
+  color: $blue;
+  font-size: 15px;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  padding: 9px;
+  border: solid 1.5px $blue;
+  outline: none;
+  border-radius: 35px;
+  box-shadow: 0 1px lightgrey;
   transition: width 0.5s;
 }
 
-#form-search.search {
-  width: 120px;
-  justify-content:space-between;
-  border-radius: 40px;
-}
-#form-search.search #search{
-  width: 100%;
-  margin-left:8px;
-  padding:3px;
-}
-#form-search.search #bt-close{
-  display:inline-block
-}
-#bt-close,
-#form-search.search #bt-search{
-  display:none
-}
-#bt-close,
-#bt-search{
-  cursor:pointer;
+.searchbar > div > input::placeholder {
+  color: #efefef;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
 }
 
-.filter-collapse {
-  position: absolute;
-  z-index: 24;
-  right: 0;
-  left: 0;
-  background-color: rgba(255,255,255,0.8);
+
+.searchbar > div > input:focus::placeholder {
+  opacity: 1;
 }
+
+.searchbar > div > input:focus,
+.searchbar > div > input:not(:placeholder-shown) {
+  width: 200px;
+}
+
+
+
+// #form-search{
+//   padding: 5px;
+//   /* Pour éviter de faire apparaître le rectangle quand on clique sur le champ de recherche */
+//   width: 30px;
+//   height: 30px;
+//   color: $blue;
+//   display:flex;
+//   align-items:center;
+//   justify-content:center;
+//   -moz-transition: width .5s, border-radius .5s;
+//   -o-transition: width .5s, border-radius .5s ;
+//   -ms-transition: width .5s, border-radius .5s;
+//   -webkit-transition: width .5s, border-radius .5s;
+//   transition: width .5s, border-radius .5s;
+// }
+
+// #search {
+//   width: 0px;
+//   height:20px;
+//   margin:0;
+//   padding:0;
+//   background: white;
+//   border:none;
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+//   -moz-transition: width .5s;
+//   -o-transition: width .5s;
+//   -ms-transition: width .5s;
+//   -webkit-transition: width .5s;
+//   transition: width 0.5s;
+// }
+
+// #form-search.search {
+//   width: 120px;
+//   justify-content:space-between;
+//   border-radius: 40px;
+// }
+// #form-search.search #search{
+//   width: 100%;
+//   margin-left:8px;
+//   padding:3px;
+// }
+// #form-search.search #bt-close{
+//   display:inline-block
+// }
+// #bt-close,
+// #form-search.search #bt-search{
+//   display:none
+// }
+// #bt-close,
+// #bt-search{
+//   cursor:pointer;
+// }
+
+// .filter-collapse {
+//   position: absolute;
+//   z-index: 24;
+//   right: 0;
+//   left: 0;
+//   background-color: rgba(255,255,255,0.8);
+// }

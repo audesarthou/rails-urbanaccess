@@ -1,15 +1,23 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-lewagon">
 
-  <div id="research">
+ <!--  <div id="hidden">
     <form id="form-search" action="">
       <input type="text" id="search" name="" placeholder="recherche">
       <i class="fas fa-search" id="bt-search"></i>
       <i class="fas fa-search" id="bt-close"></i>
-    </form>
-  </div>
 
+    </form>
+  </div> -->
+
+  <div>
+    <div class="searchbar">
+      <div>
+        <input type="text" placeholder="recherche" required>
+      </div>
+    </div>
+  </div>
   <%= link_to root_path , class: "navbar-brand" do %>
-    <%= image_tag "logo.svg", alt: "logo" %>
+    <%= image_tag "logo.svg", alt: "logo", class: "navbar-present" %>
   <% end %>
 
 
@@ -18,22 +26,28 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mt-3">
+    <ul class="navbar-nav mt-3 mb-0">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="far fa-user"></i> Mon profil
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu pl-0" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to 'Connexion', new_user_session_path, class: "dropdown-item" %>
           <%= link_to 'Créer un compte', new_user_registration_path, class: "dropdown-item" %>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="far fa-heart"></i> Mes favoris</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="far fa-envelope"></i> Nous contacter</a>
-      </li>
+        <a class="nav-link" href="#"><i class="far fa-heart"></i>Mes favoris</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-at"></i> Contact
+        </a>
+        <div class="dropdown-menu pl-4" aria-labelledby="navbarDropdownMenuLink">
+          <a href="mailto:contact@urbanaccess.com" class="dropdown-item pl-0">Envoyer un mail <i class="far fa-envelope"></i></a>
+          Nous suivre <a href="" i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i></a>
+        </div>
+
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to  destroy_user_session_path, method: :delete, class: "nav-link" do %>
