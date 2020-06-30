@@ -39,6 +39,9 @@
 .card-product-icons {
   width: 40px;
   min-width: 40px;
+  p {
+    margin-top: 0;
+  }
 }
 
 .card-product-top-infos ul {
@@ -58,7 +61,11 @@
   margin-top: 2px;
 }
 
-.small_icon {
+.handi_icon {
   width: 40%;
   margin-top: 5px;
+  // width: 40px;
+  // height: 40px;
+  // padding: 3px;
+  object-fit: contain;
 }
