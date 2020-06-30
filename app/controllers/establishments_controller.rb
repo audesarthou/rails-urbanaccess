@@ -23,7 +23,8 @@ class EstablishmentsController < ApplicationController
         lng: establishment.longitude,
         average: establishment.access_average,
         name: establishment.name,
-        description: establishment.description
+        description: establishment.description,
+        district: establishment.district.name
       }
     end
 

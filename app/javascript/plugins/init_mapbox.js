@@ -49,10 +49,45 @@ const districts = () => {
     }
 }
 
+const findDistrictMarkers = (district, markers) => {
+  const districtMarkers = [];
+  markers.forEach((marker) => {
+    if (district === marker.district) {
+      districtMarkers.push(marker)
+    }
+  })
+  return districtMarkers;
+
+}
 
 
+const computeAverageDistrict = (districtMarkers) => {
+  console.log(districtMarkers)
+  let averageTotal = 0;
 
-const markerColor = (marker) => {
+  districtMarkers.forEach((marker) => {
+    if (marker.average) {
+      averageTotal += marker.average;
+
+    }
+  })
+  return averageTotal / districtMarkers.length
+}
+
+const setDistrictColor = (average) => {
+
+  if (average === null) {
+    return '#128AB2'
+  } else if (average < 3) {
+    return '#FF0102';
+  } else if (average < 4) {
+    return '#FFA500';
+  } else {
+    return '#048004';
+  }
+}
+
+const setColor = (marker) => {
   const params = { color: '#128AB2' }
 
   if (marker.average === null) {
@@ -73,6 +108,7 @@ const initMapbox = () => {
 
 
   const mapElement = document.getElementById('map');
+  const markers = JSON.parse(mapElement.dataset.markers);
 
   // Geolocation
   const geolocate = new mapboxgl.GeolocateControl({
@@ -83,7 +119,6 @@ const initMapbox = () => {
   });
 
 
-
   const fitMapToMarkers = (map, markers) => {
 
     const bounds = new mapboxgl.LngLatBounds();
@@ -91,41 +126,48 @@ const initMapbox = () => {
 
 
 
+    fetch("https://opendata.bordeaux-metropole.fr/api/records/1.0/search/?dataset=bor_sigquartiers&q=")
+      .then(response => response.json())
+      .then((data) => {
+
+        map.on('load', function() {
 
 
-  fetch("https://opendata.bordeaux-metropole.fr/api/records/1.0/search/?dataset=bor_sigquartiers&q=")
-    .then(response => response.json())
-    .then((data) => {
+          data.records.forEach((element) => {
+            let colorDistrict = '#128AB2';
+            const districtMarkers = findDistrictMarkers(element.fields.nom, markers)
+            if (districtMarkers.length !== 0) {
+              const averageDistrict = computeAverageDistrict(districtMarkers)
+              colorDistrict = setDistrictColor(averageDistrict)
+            }
+            console.log(colorDistrict)
+            map.addSource(element.fields.nom, {
+              'type': 'geojson',
+              'data': {
+                'type': 'Feature',
+                'geometry': element.fields.geometrie
+                }
+            })
 
-      map.on('load', function() {
-        data.records.forEach((element) => {
-          map.addSource(element.fields.nom, {
-            'type': 'geojson',
-            'data': {
-              'type': 'Feature',
-              'geometry': element.fields.geometrie
-              }
+            map.addLayer({
+            'id': element.fields.nom,
+            'type': 'fill',
+            'source': element.fields.nom,
+            'layout': {},
+            'paint': {
+            'fill-color': colorDistrict,
+            'fill-opacity': 0.8
+            }
+          });
+
+
           })
-          console.log(element.fields.nom)
-          map.addLayer({
-          'id': element.fields.nom,
-          'type': 'fill',
-          'source': element.fields.nom,
-          'layout': {},
-          'paint': {
-          'fill-color': '#088',
-          'fill-opacity': 0.8
-          }
-        });
 
 
         })
 
 
-      })
-
-
-    });
+      });
 
 
 
@@ -183,9 +225,8 @@ const initMapbox = () => {
     console.log('A geolocate event has occurred.')
     });
 
-    const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-    new mapboxgl.Marker( markerColor(marker))
+    new mapboxgl.Marker( setColor(marker))
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
       .setHTML('<h3>' + marker.name + '</h3><p>' + marker.description + '</p>'))
@@ -204,4 +245,4 @@ const initMapbox = () => {
 
 
 export { initMapbox };
-export { markerColor };
+export { setColor };
