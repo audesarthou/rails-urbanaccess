@@ -7,10 +7,14 @@ class ReportsController < ApplicationController
     if params[:search].present?
       if params[:search][:searchall].present?
         @reports = []
-        @reports << Report.find_by(location: params[:search][:searchall]) if !Report.find_by(location: params[:search][:searchall]).nil?
-        @reports << Report.find_by(title: params[:search][:searchall]) if !Report.find_by(title: params[:search][:searchall]).nil?
-        @reports << Report.find_by(content: params[:search][:searchall]) if !Report.find_by(content: params[:search][:searchall]).nil?
+        @reports << Report.where("location ILIKE ?", "%#{params[:search][:searchall]}%")
+        @reports << Report.where("title ILIKE ?", "%#{params[:search][:searchall]}%")
+        @reports << Report.where("content ILIKE ?", "%#{params[:search][:searchall]}%")
+        @reports = @reports.flatten.compact.uniq
+        @reports
       end
+    # elsif params[:geocoder].present?
+    # @location = Location.near(params[:search], 50, :order => :distance)
     else
       @reports = Report.all
     end
