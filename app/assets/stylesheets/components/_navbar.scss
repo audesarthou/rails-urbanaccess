@@ -24,12 +24,27 @@
   height: 380px;
 }
 
+.navbarDropdownMenuLink {
+  color: $blue;
+  margin: 0px;
+}
+
 .far {
-  color: $dark-blue;
+  color: $blue;
+  padding-left: 7px;
+  font-size: 22px;
 }
 
 .fas {
-  color: $dark-blue;
+  color: $blue;
+  padding-left: 7px;
+  font-size: 22px;
+}
+
+.fab {
+  color: $blue;
+  padding-left: 7px;
+  font-size: 22px;
 }
 
 #form-search{
