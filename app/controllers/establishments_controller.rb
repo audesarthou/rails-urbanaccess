@@ -18,14 +18,17 @@ class EstablishmentsController < ApplicationController
     end
 
     @markers = @establishments.geocoded.map do |establishment|
-      {
-        lat: establishment.latitude,
-        lng: establishment.longitude,
-        average: establishment.access_average,
-        name: establishment.name,
-        description: establishment.description,
-        district: establishment.district.name
-      }
+
+        {
+          lat: establishment.latitude,
+          lng: establishment.longitude,
+          average: establishment.access_average,
+          name: establishment.name,
+          description: establishment.description,
+          district: establishment.district.name
+        }
+
+
     end
 
   end
@@ -48,7 +51,8 @@ class EstablishmentsController < ApplicationController
     @marker = {
       lat: @establishment.latitude,
       lng: @establishment.longitude,
-      average: @establishment.access_average
+      average: @establishment.access_average,
+      district: @establishment.district.name
     }
     @reviews = @establishment.reviews
     comput_access_average
