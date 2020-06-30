@@ -25,7 +25,9 @@ class EstablishmentsController < ApplicationController
           average: establishment.access_average,
           name: establishment.name,
           description: establishment.description,
-          district: establishment.district.name
+          district: establishment.district.name,
+          category: establishment.category,
+          id: establishment.id
         }
 
 
@@ -52,7 +54,8 @@ class EstablishmentsController < ApplicationController
       lat: @establishment.latitude,
       lng: @establishment.longitude,
       average: @establishment.access_average,
-      district: @establishment.district.name
+      district: @establishment.district.name,
+      category: @establishment.category
     }
     @reviews = @establishment.reviews
     comput_access_average
