@@ -79,7 +79,7 @@ const computeAverageDistrict = (districtMarkers) => {
   return averageTotal / districtMarkers.length
 }
 
-const setDistrictColor = (average) => {
+const setColor = (average) => {
 
   if (average === null) {
     return '#128AB2'
@@ -92,22 +92,6 @@ const setDistrictColor = (average) => {
   }
 }
 
-const setColor = (marker) => {
-  const params = { color: '#128AB2' }
-
-  if (marker.average === null) {
-    return params
-  } else if (marker.average < 3) {
-    params.color = 'red'
-    return params;
-  } else if (marker.average < 4) {
-    params.color = 'orange'
-    return params;
-  } else {
-    params.color = 'green'
-    return params;
-  }
-};
 
 const initMapbox = () => {
   let mapElement
@@ -131,7 +115,6 @@ const initMapbox = () => {
       markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
 
 
-
       fetch("https://opendata.bordeaux-metropole.fr/api/records/1.0/search/?dataset=bor_sigquartiers&q=")
         .then(response => response.json())
         .then((data) => {
@@ -143,7 +126,7 @@ const initMapbox = () => {
               const districtMarkers = findDistrictMarkers(element.fields.nom, markers)
               if (districtMarkers.length !== 0) {
                 const averageDistrict = computeAverageDistrict(districtMarkers)
-                colorDistrict = setDistrictColor(averageDistrict)
+                colorDistrict = setColor(averageDistrict)
               }
 
               map.addSource(element.fields.nom, {
@@ -222,7 +205,7 @@ const initMapbox = () => {
       });
 
       markers.forEach((marker) => {
-      new mapboxgl.Marker( setColor(marker))
+      new mapboxgl.Marker( { color: setColor(marker.average) })
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
         .setHTML('<h3>' + marker.name + '</h3><p>' + marker.description + '</p>'))
@@ -262,8 +245,10 @@ const initMapbox = () => {
       });
 
 
+        // var el = document.createElement('div');
+        // el.className = 'marker';
 
-        new mapboxgl.Marker( setColor(marker))
+        new mapboxgl.Marker( { color: 'setColor(marker.average)' })
           .setLngLat([ marker.lng, marker.lat ])
           .addTo(map);
       fitMapToMarker(map, marker);

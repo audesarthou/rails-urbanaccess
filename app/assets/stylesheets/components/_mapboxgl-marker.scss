@@ -1,0 +1,13 @@
+.mapboxgl-marker {
+  background-image: url('theater-r.png');
+  background-size: cover;
+  height: 35px;
+  width: 25px;
+  cursor: pointer;
+}
+.mapboxgl-marker svg {
+  visibility: hidden;
+}
+// .mapboxgl-marker circle {
+//   visibility: hidden;
+// }
