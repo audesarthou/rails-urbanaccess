@@ -23,17 +23,23 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="far fa-user"></i> Mon profil
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu pl-0" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to 'Connexion', new_user_session_path, class: "dropdown-item" %>
           <%= link_to 'Créer un compte', new_user_registration_path, class: "dropdown-item" %>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="far fa-heart"></i> Mes favoris</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="mailto:contact@urbanaccess.com"><i class="far fa-envelope"></i> Nous contacter</a>
-      </li>
+        <a class="nav-link" href="#"><i class="far fa-heart"></i>Mes favoris</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-at"></i> Contact
+        </a>
+        <div class="dropdown-menu pl-4" aria-labelledby="navbarDropdownMenuLink">
+          Envoyer un mail <i class="far fa-envelope"></i><a href="mailto:contact@urbanaccess.com" class="dropdown-item"></a>
+          Nous suivre <a href="" i class="fab fa-facebook-f"></i><i class="fab fa-twitter"></i><i class="fab fa-instagram"></i></a>
+        </div>
+
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to  destroy_user_session_path, method: :delete, class: "nav-link" do %>
