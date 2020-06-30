@@ -108,6 +108,7 @@ const initMapbox = () => {
 
 
   const mapElement = document.getElementById('map');
+
   const markers = JSON.parse(mapElement.dataset.markers);
 
   // Geolocation
