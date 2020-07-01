@@ -32,3 +32,10 @@ function setSearch(oEvent){
   }
 }
 
+const splash = document.querySelector(".splash-link")
+
+function unsplash(){
+  splash.click();
+}
+
+setTimeout(unsplash, 4000);
