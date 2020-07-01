@@ -60,7 +60,7 @@ class EstablishmentsController < ApplicationController
       district: @establishment.district.name,
       category: @establishment.category
     }
-    # @reviews = @establishment.reviews
+    @reviews = @establishment.reviews
     @establishment.update(access_average: comput_access_average(@establishment), service_average: comput_service_average(@establishment))
     @review = Review.new
   end
