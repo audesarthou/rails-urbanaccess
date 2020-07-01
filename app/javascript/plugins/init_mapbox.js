@@ -1,6 +1,5 @@
 import mapboxgl from 'mapbox-gl';
 
-
 // const districts = () => {
 //   return {
 //     "type": "FeatureCollection",
@@ -83,15 +82,14 @@ const setColor = (average) => {
 
   if (average === null) {
     return '#128AB2'
-  } else if (average < 3) {
+  } else if (average <= 2) {
     return 'red';
-  } else if (average < 4) {
+  } else if (average <= 3) {
     return 'orange';
   } else {
     return 'green';
   }
 }
-
 
 const initMapbox = () => {
   let mapElement
@@ -174,7 +172,6 @@ const initMapbox = () => {
     //   })
     // })
 
-
       map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
     };
 
@@ -196,12 +193,22 @@ const initMapbox = () => {
         const color = setColor(marker.average)
         console.log(marker)
         el.className = `marker-${category}-${color}`;
-        new mapboxgl.Marker( el )
-          .setLngLat([ marker.lng, marker.lat ])
-          .addTo(map);
-        });
 
-        fitMapToMarkers(map, markers);
+      new mapboxgl.Marker( el )
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+        .setHTML(`<a href="establishments/${marker.id}">
+          <div class="d-flex justify-content-between">
+            <h3> ${marker.name} </h3>
+            <img src="https://raw.githubusercontent.com/audesarthou/rails-urbanaccess/ca58c73446a0ef6eaa044b75e38e7454ca8f93f6/app/assets/images/popup-${category}.svg" alt="">
+          </div>
+          <p> ${marker.description} </p>
+          </a>`
+          ))
+        .addTo(map);
+      });
+      fitMapToMarkers(map, markers);
+
 
     }
   // establishments show

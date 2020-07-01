@@ -120,12 +120,12 @@ creperie.save!
 Review.create!(content: "Accueil chaleureux et remarquable service exemplaire le kir bordelais succulent et les crêpes un délice je vous suggère d'aller faire un petit tour rapport qualité/prix", access_rating: 4, service_rating: 3, user: fifi, establishment: creperie)
 Review.create!(content: "Des crêpes comme dans nos rêves, délicieuses avec un accueil chaleureux qui nous a fait bien plaisir, je recommande !", access_rating: 5, service_rating: 4, user: riri, establishment: creperie)
 Review.create!(content: "Un accueil des plus chaleureux Des crêpes généreuses et gourmandes Nous nous sommes régalés !!! Merci pour ce moment de douceur.", access_rating: 4, service_rating: 4, user: loulou, establishment: creperie)
-Review.create!(content: "", access_rating: 4, service_rating: 5, user: coco, establishment: creperie)
-Review.create!(content: "", access_rating: 4, service_rating: 5, user: coco, establishment: creperie)
-Review.create!(content: "", access_rating: 3, service_rating: 5, user: coco, establishment: creperie)
-Review.create!(content: "", access_rating: 3, service_rating: 5, user: coco, establishment: creperie)
-Review.create!(content: "", access_rating: 3, service_rating: 5, user: coco, establishment: creperie)
-Review.create!(content: "", access_rating: 4, service_rating: 5, user: coco, establishment: creperie)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: coco, establishment: creperie)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: coco, establishment: creperie)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: coco, establishment: creperie)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: coco, establishment: creperie)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: coco, establishment: creperie)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: coco, establishment: creperie)
 
 blanche = Establishment.new(name: "Terrasse de la Croix Blanche", address: "62 rue de la Croix Blanche Bordeaux", phone_number: "06 61 60 05 61", description: "Passez une soirée sur le thème de la cuisine française, diversifiée ou traditionnelle et découvrez ses diverses facettes.", category: :restaurant, district: centre_ville)
 file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593211776/Urban_access/restaurants/croix_blanche/Croix_Blanche_1_raalty.jpg")
@@ -267,7 +267,7 @@ var2 = {io: file2, filename: "cantine2.jpg", content_type: "image/jpg"}
 var3 = {io: file3, filename: "cantine3.jpg", content_type: "image/jpg"}
 cantine.photos.attach([var1, var2, var3])
 cantine.save!
-Review.create!(content: "Concept original dans le quartier, idéal pour manger des produits frais bien cuisinés. Prix très abordables et super ambiance. Je recommande vivement.", access_rating: 4, service_rating: 5, user: coco, establishment: cantine)
+Review.create!(content: "Très sympa ce petit resto. Mêle la déco est chouette. Salade ou burger tout était excellent. Il y a même un espace pour que les enfants jouent aux jeux vidéo. A refaire.", access_rating: 4, service_rating: 5, user: coco, establishment: cantine)
 Review.create!(content: "Petit restaurant très sympathique dans le quartier de saint Augustin. La cuisine y est bonne, faite avec des produits frais, on se régale. La cuisson des viandes (burger) est parfaite. Le service est impeccable.", access_rating: 4, service_rating: 4, user: riri, establishment: cantine)
 Review.create!(content: "L'endroit est petit et bien décoré. L'accueil très convivial. Grand choix de burgers. Pas trop d'attente entre la commande et le service. Nous avons vraiment bien mangé.", access_rating: 4, service_rating: 5, user: fifi, establishment: cantine)
 Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cantine)
@@ -315,6 +315,37 @@ Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, est
 Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cafe_bastide)
 Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cafe_bastide)
 Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cafe_bastide)
+
+pizza_nico = Establishment.new(name: "Pizza Nico", address: "134 cours Balguerie Stuttenberg Bordeaux", phone_number: "05 56 43 01 21", description: "Dans le quartier des Chartrons et proche de l'école web Le wagon, un avant goût d'Italie.", category: :restaurant, district: chartrons)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_1_zvuc7z.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_2_cdagap.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_3_kyw0gd.jpg")
+var1 = {io: file1, filename: "pizzanico1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "pizzanico2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "pizzanico3.jpg", content_type: "image/jpg"}
+pizza_nico.photos.attach([var1, var2, var3])
+pizza_nico.save!
+Review.create!(content: "Accueil chaleureux, les pizzs...HUM un délice c'est la 1ère fois que mon mari les mange entièrement. Franchement elles sont délicieuses allez les goûter.", access_rating: 4, service_rating: 3, user: coco, establishment: pizza_nico)
+Review.create!(content: "Bonnes pizza, rien a redire. Ne vous attendez pas à des pizzas gastro, elles sont simple et c'est très bien.", access_rating: 4, service_rating: 2, user: riri, establishment: pizza_nico)
+Review.create!(content: "Certes le gérant n'est pas la personne la plus chaleureuse du monde mais bon ...les pizzas sont parfaites...(la 5 fromages !!)et les prix sont très correct.", access_rating: 4, service_rating: 2, user: loulou, establishment: pizza_nico)
+Review.create!(content: "", access_rating: 4, service_rating: 2, user: coco, establishment: pizza_nico)
+Review.create!(content: "", access_rating: 4, service_rating: 3, user: coco, establishment: pizza_nico)
+Review.create!(content: "", access_rating: 4, service_rating: 2, user: coco, establishment: pizza_nico)
+
+tripletta = Establishment.new(name: "Tripletta", address: "83 cours du Medoc Bordeaux", phone_number: "09 83 30 30 70", description: "Dans le quartier des Chartrons une petite pizzéria sur le cours du Médoc, avec une belle terrasse.", category: :restaurant, district: chartrons)
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608381/Urban_access/restaurants/tripletta/tripletta_1_jx6ect.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608381/Urban_access/restaurants/tripletta/tripletta_2_axgmwk.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608381/Urban_access/restaurants/tripletta/tripletta_3_ayuuxe.jpg")
+var1 = {io: file1, filename: "tripletta1.jpg", content_type: "image/jpg"}
+var2 = {io: file2, filename: "tripletta2.jpg", content_type: "image/jpg"}
+var3 = {io: file3, filename: "tripletta3.jpg", content_type: "image/jpg"}
+tripletta.photos.attach([var1, var2, var3])
+tripletta.save!
+Review.create!(content: "Les pizze sont très gouteuses, avec de bons ingrédients. Bonne burrata en entrée également et une panna cotta très honnête. On ne lésine pas sur la qualité ici et c'est appréciable avec un rapport qualité-prix juste.", access_rating: 4, service_rating: 3, user: coco, establishment: tripletta)
+Review.create!(content: "Le restaurant est animé par une jeune équipe très sympathique. Les pizzas sont très bonnes avec une note spéciale pour la pizza aux truffes. Ils sont très commerçants.", access_rating: 4, service_rating: 2, user: riri, establishment: tripletta)
+Review.create!(content: "Le repas était très bon et rapide. Le cadre est très agréable et le personnel très sympathique. Bref, un restait à recommander.", access_rating: 4, service_rating: 2, user: coco, establishment: tripletta)
+Review.create!(content: "", access_rating: 2, service_rating: 4, user: riri, establishment: pizza_nico)
+Review.create!(content: "", access_rating: 2, service_rating: 5, user: fifi, establishment: pizza_nico)
 
 puts "Create bars"
 jaquen = Establishment.new(name: "Jaquen Craft Beer", address: "5 rue Beaubadat Bordeaux", phone_number: "06 48 14 00 38", description: "Super adresse, très bonne ambiance, le service est impeccable et des bières artisanales vraiment très bonnes.", category: :bar, district: centre_ville)
@@ -378,11 +409,11 @@ cocoloko.save!
 Review.create!(content: "Le cocoloko est un bar gayfriendly idéalement placé tout prêt de l'hôtel de ville. Soirées à thèmes, ambiance bon enfant, personnel extrêmement agréable, sécurité assurée.", access_rating: 2, service_rating: 2, user: coco, establishment: cocoloko)
 Review.create!(content: "L'endroit est inattendu. Nous osons à peine entrer. Mais l'accueil est aimable et chaleureux, et les cocktails sont très bons. Des tapas (offerts) les accompagnent.", access_rating: 3, service_rating: 3, user: riri, establishment: cocoloko)
 Review.create!(content: "Bar gay friendly tres sympa. Super accueil. Ambiance très jeune. Ouvert jusqu'à 2 h du mat. L'endroit idéal pour prendre un verre entre amis.", access_rating: 3, service_rating: 4, user: fifi, establishment: cocoloko)
-Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cocoloko)
-Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cocoloko)
-Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cocoloko)
-Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cocoloko)
-Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cocoloko)
+Review.create!(content: "", access_rating: 2, service_rating: 4, user: coco, establishment: cocoloko)
+Review.create!(content: "", access_rating: 2, service_rating: 4, user: coco, establishment: cocoloko)
+Review.create!(content: "", access_rating: 2, service_rating: 4, user: coco, establishment: cocoloko)
+Review.create!(content: "", access_rating: 2, service_rating: 4, user: coco, establishment: cocoloko)
+Review.create!(content: "", access_rating: 2, service_rating: 4, user: coco, establishment: cocoloko)
 
 guinguette = Establishment.new(name: "La Guinguette Chez Alriq", address: "Rue Hortense Bordeaux", phone_number: "05 56 86 58 49", description: "Bel endroit convivial au bord de la Garonne avec des concerts sympas et pour toutes les générations. Une ambiance chaleureuse sans prise de tête et sans chichi.", category: :bar, district: bastide)
 file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173320/Urban_access/bars/La_Guinguette_chez_Alriq/La_Guinguette_chez_Alriq_1_lg9xj2.jpg")
@@ -487,9 +518,9 @@ gallien.photos.attach([var1, var2, var3])
 gallien.save!
 Review.create!(content: "Ce très beau batiment abrite une magnifique salle de spectacle. C'est juste tres difficile d'obtenir des places à moins d'attendre assez longtemps", access_rating: 4, service_rating: 4, user: riri, establishment: gallien)
 Review.create!(content: "Hier soir, j'ai vu la pièce : Le gâteau de Troie. C'est une version revisitée du cheval de Troie. Spectacle super drôle, on a bien rigolé. Les 5 acteurs sont extra, nous avons vraiment passé un très bon moment.", access_rating: 4, service_rating: 3, user: fifi, establishment: gallien)
-Review.create!(content: "", access_rating: 3, service_rating: 3, user: coco, establishment: gallien)
-Review.create!(content: "", access_rating: 3, service_rating: 3, user: coco, establishment: gallien)
-Review.create!(content: "", access_rating: 3, service_rating: 3, user: coco, establishment: gallien)
+Review.create!(content: "", access_rating: 2, service_rating: 3, user: coco, establishment: gallien)
+Review.create!(content: "", access_rating: 2, service_rating: 3, user: riri, establishment: gallien)
+Review.create!(content: "", access_rating: 2, service_rating: 3, user: fifi, establishment: gallien)
 
 # theatrechartrons = Establishment.new(name: "Café Théâtre des Chartrons", address: "170 cours du Médoc Bordeaux", phone_number: "05 56 37 63 44", description: "Café théâtre sans fioritures mais agréable. Personnel accueillant et sympathique. Possibilité de boire un verre avant et après le spectacle, voire de manger sur le pouce.", category: :theatre, district: )
 # file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593173498/Urban_access/theatres/ctc/ctc_1_anrvqq.jpg")
