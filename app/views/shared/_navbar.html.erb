@@ -12,7 +12,14 @@
   <div>
     <div class="searchbar">
       <div>
-        <input type="text" placeholder="recherche" required>
+        <!-- <input type="text" placeholder="recherche" required> -->
+        <%= form_tag establishments_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            placeholder: "recherche"
+          %>
+          <%= submit_tag "Search", class: "d-none" %>
+        <% end %>
       </div>
     </div>
   </div>
