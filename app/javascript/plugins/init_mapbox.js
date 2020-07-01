@@ -1,6 +1,5 @@
 import mapboxgl from 'mapbox-gl';
 
-
 // const districts = () => {
 //   return {
 //     "type": "FeatureCollection",
@@ -83,15 +82,14 @@ const setColor = (average) => {
 
   if (average === null) {
     return '#128AB2'
-  } else if (average < 3) {
+  } else if (average <= 2) {
     return 'red';
-  } else if (average < 4) {
+  } else if (average <= 3) {
     return 'orange';
   } else {
     return 'green';
   }
 }
-
 
 const initMapbox = () => {
   let mapElement
@@ -173,7 +171,6 @@ const initMapbox = () => {
     //   });
     //   })
     // })
-
 
       map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
     };
