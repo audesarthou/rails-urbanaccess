@@ -9,7 +9,6 @@ class EstablishmentsController < ApplicationController
       establishment.update(access_average: comput_access_average(establishment), service_average: comput_service_average(establishment))
     end
 
-
     if params[:search] && !params[:search][:activity].blank?
       @establishments = @establishments.where(category: params[:search][:activity].to_sym)
     end
