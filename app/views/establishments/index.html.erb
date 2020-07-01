@@ -1,9 +1,11 @@
 <div class="wrapper">
   <div class="category-establishment" type="filtre">
     <div class="blue-block-filters">
+      <%= link_to "Voir tous", establishments_path %>
       <% @categories.each do |category| %>
           <%= link_to category.capitalize, filter: category %>
       <% end %>
+
     </div>
   </div>
 
