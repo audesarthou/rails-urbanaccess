@@ -23,7 +23,7 @@
     color: $dark-blue;
   }
   p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   margin-bottom: 0;
   margin-top: 2px;
@@ -48,14 +48,32 @@
   display: flex;
 }
 
+.card-product-top-infos p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 5px;
+  margin-left: 4px;
+  color: $dark-blue;
+}
+
 .fa-heart {
   position: relative;
   margin-top: 10px;
   margin-right: 10px;
 }
 
+.blue-line {
+  display: block;
+  height: 5px;
+  width: 40px;
+  border-radius: 60px;
+  background-color: $blue;
+  margin-top: 4px;
+}
+
 .fa-circle {
-  font-size: 8px;
+  font-size: 9px;
   color: $dark-blue;
   padding-right: 2px;
   margin-top: 2px;
