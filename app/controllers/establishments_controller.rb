@@ -35,7 +35,6 @@ class EstablishmentsController < ApplicationController
           id: establishment.id
         }
     end
-
   end
 
   def new
