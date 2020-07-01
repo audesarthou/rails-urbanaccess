@@ -10,10 +10,7 @@ class EstablishmentsController < ApplicationController
     end
 
     if params[:query].present?
-      establishments = []
-      establishments << Establishment.where("name ILIKE ?", "%#{params[:query]}%")
-      establishments << Establishment.where("description ILIKE ?", "%#{params[:query]}%")
-      @establishments = establishments.flatten.compact.uniq
+      @establishments = Establishment.where("name ILIKE ? OR description ILIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     end
 
     if params[:search] && !params[:search][:activity].blank?
@@ -29,16 +26,16 @@ class EstablishmentsController < ApplicationController
     end
 
     @markers = @establishments.geocoded.map do |establishment|
-        {
-          lat: establishment.latitude,
-          lng: establishment.longitude,
-          average: establishment.access_average,
-          name: establishment.name,
-          description: establishment.description,
-          district: establishment.district.name,
-          category: establishment.category,
-          id: establishment.id
-        }
+      {
+        lat: establishment.latitude,
+        lng: establishment.longitude,
+        average: establishment.access_average,
+        name: establishment.name,
+        description: establishment.description,
+        district: establishment.district.name,
+        category: establishment.category,
+        id: establishment.id
+      }
     end
   end
 
