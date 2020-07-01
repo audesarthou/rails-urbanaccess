@@ -24,12 +24,13 @@
 
         <div class="card-product-infos">
           <h3><%= establishment.name %></h3>
+          <span class="blue-line"></span>
           <div class="card-product-top-infos">
             <ul class="rounded-circle list-inline">
               <% unless establishment.service_average.nil? %>
                 <% count = 0 %>
                 <% while count < establishment.service_average %>
-                  <li><i class="fas fa-circle"></i></li>
+                  <li><i class="fas fa-circle pl-0"></i></li>
                   <% count += 1 %>
                 <% end %>
               <% end %>
