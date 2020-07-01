@@ -1,6 +1,5 @@
 import mapboxgl from 'mapbox-gl';
 
-
 // const districts = () => {
 //   return {
 //     "type": "FeatureCollection",
@@ -92,7 +91,6 @@ const setColor = (average) => {
   }
 }
 
-
 const initMapbox = () => {
   let mapElement
 
@@ -173,7 +171,6 @@ const initMapbox = () => {
     //   });
     //   })
     // })
-
 
       map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
     };
