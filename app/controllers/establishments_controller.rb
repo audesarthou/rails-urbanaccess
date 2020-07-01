@@ -81,7 +81,7 @@ class EstablishmentsController < ApplicationController
   private
 
   def establishment_params
-    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, :access_average, :service_average, photos: [])
+    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, photos: [])
   end
 
   def comput_access_average(establishment)
