@@ -9,6 +9,13 @@ class EstablishmentsController < ApplicationController
       establishment.update(access_average: comput_access_average(establishment), service_average: comput_service_average(establishment))
     end
 
+    if params[:query].present?
+      establishments = []
+      establishments << Establishment.where("name ILIKE ?", "%#{params[:query]}%")
+      establishments << Establishment.where("description ILIKE ?", "%#{params[:query]}%")
+      @establishments = establishments.flatten.compact.uniq
+    end
+
     if params[:search] && !params[:search][:activity].blank?
       @establishments = @establishments.where(category: params[:search][:activity].to_sym)
     end
@@ -22,7 +29,6 @@ class EstablishmentsController < ApplicationController
     end
 
     @markers = @establishments.geocoded.map do |establishment|
-
         {
           lat: establishment.latitude,
           lng: establishment.longitude,
@@ -34,7 +40,6 @@ class EstablishmentsController < ApplicationController
           id: establishment.id
         }
     end
-
   end
 
   def new

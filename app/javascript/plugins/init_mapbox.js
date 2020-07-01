@@ -194,6 +194,7 @@ const initMapbox = () => {
         const el = document.createElement('div');
         const category = marker.category;
         const color = setColor(marker.average)
+              console.log(marker)
         el.className = `marker-${category}-${color}`;
       new mapboxgl.Marker( el )
         .setLngLat([ marker.lng, marker.lat ])
