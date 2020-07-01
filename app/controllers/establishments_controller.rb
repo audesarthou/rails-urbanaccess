@@ -5,6 +5,11 @@ class EstablishmentsController < ApplicationController
 
     @establishments = Establishment.all
 
+    @establishments.each do |establishment|
+      establishment.update(access_average: comput_access_average(establishment), service_average: comput_service_average(establishment))
+    end
+
+
     if params[:search] && !params[:search][:activity].blank?
       @establishments = @establishments.where(category: params[:search][:activity].to_sym)
     end
@@ -29,8 +34,6 @@ class EstablishmentsController < ApplicationController
           category: establishment.category,
           id: establishment.id
         }
-
-
     end
 
   end
@@ -57,10 +60,8 @@ class EstablishmentsController < ApplicationController
       district: @establishment.district.name,
       category: @establishment.category
     }
-    @reviews = @establishment.reviews
-    comput_access_average
-    comput_service_average
-    @establishment.update(access_average: comput_access_average, service_average: comput_service_average)
+    # @reviews = @establishment.reviews
+    @establishment.update(access_average: comput_access_average(@establishment), service_average: comput_service_average(@establishment))
     @review = Review.new
   end
 
@@ -80,22 +81,22 @@ class EstablishmentsController < ApplicationController
   private
 
   def establishment_params
-    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, photos: [])
+    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, :access_average, :service_average, photos: [])
   end
 
-  def comput_access_average
+  def comput_access_average(establishment)
     access_ratings = []
-    @establishment.reviews.each do |review|
+    establishment.reviews.each do |review|
       access_ratings << review.access_rating
     end
-    unless @reviews.count.zero?
-      @access_average = access_ratings.sum / @reviews.count
+    unless establishment.reviews.count.zero?
+      @access_average = access_ratings.sum / establishment.reviews.count
     end
   end
 
-  def comput_service_average
+  def comput_service_average(establishment)
     service_ratings = []
-    @establishment.reviews.each do |review|
+    establishment.reviews.each do |review|
       service_ratings << review.service_rating
     end
     service_ratings.reject! { |r| r.nil?}
