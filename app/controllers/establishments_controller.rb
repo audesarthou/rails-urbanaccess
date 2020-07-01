@@ -9,6 +9,12 @@ class EstablishmentsController < ApplicationController
       establishment.update(access_average: comput_access_average(establishment), service_average: comput_service_average(establishment))
     end
 
+    if params[:query].present?
+      establishments = []
+      establishments << Establishment.where("name ILIKE ?", "%#{params[:query]}%")
+      establishments << Establishment.where("description ILIKE ?", "%#{params[:query]}%")
+      @establishments = establishments.flatten.compact.uniq
+    end
 
     if params[:search] && !params[:search][:activity].blank?
       @establishments = @establishments.where(category: params[:search][:activity].to_sym)
@@ -23,7 +29,6 @@ class EstablishmentsController < ApplicationController
     end
 
     @markers = @establishments.geocoded.map do |establishment|
-
         {
           lat: establishment.latitude,
           lng: establishment.longitude,
@@ -59,7 +64,7 @@ class EstablishmentsController < ApplicationController
       district: @establishment.district.name,
       category: @establishment.category
     }
-    # @reviews = @establishment.reviews
+    @reviews = @establishment.reviews
     @establishment.update(access_average: comput_access_average(@establishment), service_average: comput_service_average(@establishment))
     @review = Review.new
   end
@@ -80,7 +85,7 @@ class EstablishmentsController < ApplicationController
   private
 
   def establishment_params
-    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, :access_average, :service_average, photos: [])
+    params.require(:establishment).permit(:name, :address, :phone_number, :description, :category, photos: [])
   end
 
   def comput_access_average(establishment)
