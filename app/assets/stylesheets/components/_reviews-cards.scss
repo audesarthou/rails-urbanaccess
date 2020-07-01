@@ -3,7 +3,7 @@
   h6 {
     color: $dark-blue;
     font-size: 14px;
-    padding-top: 5px;
+    padding-top: 4px;
   }
   .card-review_header p {
     margin: 0 0 8px 0;
@@ -21,7 +21,8 @@
     margin-top: 3px;
   }
   p {
-    font-size: 20px;
+    font-size: 16px;
+    padding-top: 2px;
   }
 }
 
@@ -31,5 +32,5 @@
 
 .review-content {
   font-style: italic;
-  font-size: 16px
+  font-size: 14px
 }

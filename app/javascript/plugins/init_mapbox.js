@@ -200,9 +200,9 @@ const initMapbox = () => {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
         .setHTML(`<a href="establishments/${marker.id}">
-          <div class="d-flex">
-          <h3> ${marker.name} </h3>
-
+          <div class="d-flex justify-content-between">
+            <h3> ${marker.name} </h3>
+            <img src="https://raw.githubusercontent.com/audesarthou/rails-urbanaccess/c5fea7993422e5308f0a4d85ceb54b7cee4b4787/app/assets/images/popup-${category}.svg" alt="">
           </div>
           <p> ${marker.description} </p>
           </a>`
