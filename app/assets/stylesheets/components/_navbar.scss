@@ -10,7 +10,7 @@
   flex-grow: 0;
   text-align: left;
   font-size: 23px;
-  // background-color: white;
+  background-color: white;
 }
 
 .dropdown-menu {
@@ -19,9 +19,9 @@
   margin: 0px;
 }
 
-// .navbar-brand {
-//   display: block;
-// }
+.navbar-brand {
+  display: block;
+}
 
 .navbar-brand > img {
   width: 0px;
@@ -37,10 +37,10 @@
   width: 100px !important;
 }
 
-// .navbar-nav {
-//   height: 390px;
-//   width: 100%;
-// }
+.navbar-nav {
+  height: 397px;
+  width: 100%;
+}
 
 .navbarDropdownMenuLink {
   color: $blue;

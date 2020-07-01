@@ -194,12 +194,17 @@ const initMapbox = () => {
         const el = document.createElement('div');
         const category = marker.category;
         const color = setColor(marker.average)
+              console.log(marker)
         el.className = `marker-${category}-${color}`;
       new mapboxgl.Marker( el )
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
         .setHTML(`<a href="establishments/${marker.id}">
-          <h3> ${marker.name} </h3><p> ${marker.description} </p>
+          <div class="d-flex">
+          <h3> ${marker.name} </h3>
+
+          </div>
+          <p> ${marker.description} </p>
           </a>`
           ))
         .addTo(map);
