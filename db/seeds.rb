@@ -317,9 +317,9 @@ Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, est
 Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, establishment: cafe_bastide)
 
 pizza_nico = Establishment.new(name: "Pizza Nico", address: "134 cours Balguerie Stuttenberg Bordeaux", phone_number: "05 56 43 01 21", description: "Dans le quartier des Chartrons et proche de l'école web Le wagon, un avant goût d'Italie.", category: :restaurant, district: chartrons)
-file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_1_zvuc7z.jpg")
-file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_2_cdagap.jpg")
-file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_3_kyw0gd.jpg")
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593175740/Urban_access/restaurants/Casa_Ferreti/Casa_Ferreti_1_qx7ea7.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593175741/Urban_access/restaurants/Casa_Ferreti/Casa_Ferreti_2_xcf3jy.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593175740/Urban_access/restaurants/Casa_Ferreti/Casa_Ferreti_3_sbliud.jpg")
 var1 = {io: file1, filename: "pizzanico1.jpg", content_type: "image/jpg"}
 var2 = {io: file2, filename: "pizzanico2.jpg", content_type: "image/jpg"}
 var3 = {io: file3, filename: "pizzanico3.jpg", content_type: "image/jpg"}
@@ -333,9 +333,9 @@ Review.create!(content: "", access_rating: 4, service_rating: 3, user: coco, est
 Review.create!(content: "", access_rating: 4, service_rating: 2, user: coco, establishment: pizza_nico)
 
 tripletta = Establishment.new(name: "Tripletta", address: "83 cours du Medoc Bordeaux", phone_number: "09 83 30 30 70", description: "Dans le quartier des Chartrons une petite pizzéria sur le cours du Médoc, avec une belle terrasse.", category: :restaurant, district: chartrons)
-file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608381/Urban_access/restaurants/tripletta/tripletta_1_jx6ect.jpg")
-file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608381/Urban_access/restaurants/tripletta/tripletta_2_axgmwk.jpg")
-file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608381/Urban_access/restaurants/tripletta/tripletta_3_ayuuxe.jpg")
+file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593175740/Urban_access/restaurants/Casa_Ferreti/Casa_Ferreti_1_qx7ea7.jpg")
+file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593175741/Urban_access/restaurants/Casa_Ferreti/Casa_Ferreti_2_xcf3jy.jpg")
+file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593175740/Urban_access/restaurants/Casa_Ferreti/Casa_Ferreti_3_sbliud.jpg")
 var1 = {io: file1, filename: "tripletta1.jpg", content_type: "image/jpg"}
 var2 = {io: file2, filename: "tripletta2.jpg", content_type: "image/jpg"}
 var3 = {io: file3, filename: "tripletta3.jpg", content_type: "image/jpg"}
