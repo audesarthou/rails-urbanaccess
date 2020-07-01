@@ -319,11 +319,9 @@ Review.create!(content: "", access_rating: 4, service_rating: 4, user: coco, est
 pizza_nico = Establishment.new(name: "Pizza Nico", address: "134 cours Balguerie Stuttenberg Bordeaux", phone_number: "05 56 43 01 21", description: "Dans le quartier des Chartrons et proche de l'école web Le wagon, un avant goût d'Italie.", category: :restaurant, district: chartrons)
 file1 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_1_zvuc7z.jpg")
 file2 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_2_cdagap.jpg")
-file3 = URI.open("https://res.cloudinary.com/dskt3rtif/image/upload/v1593608349/Urban_access/restaurants/pizza_nico/pizzanico_3_kyw0gd.jpg")
 var1 = {io: file1, filename: "pizzanico1.jpg", content_type: "image/jpg"}
 var2 = {io: file2, filename: "pizzanico2.jpg", content_type: "image/jpg"}
-var3 = {io: file3, filename: "pizzanico3.jpg", content_type: "image/jpg"}
-pizza_nico.photos.attach([var1, var2, var3])
+pizza_nico.photos.attach([var1, var2])
 pizza_nico.save!
 Review.create!(content: "Accueil chaleureux, les pizzs...HUM un délice c'est la 1ère fois que mon mari les mange entièrement. Franchement elles sont délicieuses allez les goûter.", access_rating: 4, service_rating: 3, user: coco, establishment: pizza_nico)
 Review.create!(content: "Bonnes pizza, rien a redire. Ne vous attendez pas à des pizzas gastro, elles sont simple et c'est très bien.", access_rating: 4, service_rating: 2, user: riri, establishment: pizza_nico)
