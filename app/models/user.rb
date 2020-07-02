@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :reports
   has_many :reviews
   has_many :favorites, dependent: :destroy
+  has_many :establishments, through: :favorites
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :first_name, :last_name, :address, presence: true
