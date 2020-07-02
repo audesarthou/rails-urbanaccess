@@ -1,2 +1,7 @@
+var favoritePage = document.getElementById("favorite");
 var establishmentCard = document.getElementById("establishment-<%= @establishment.id %>");
-establishmentCard.innerHTML = "<%= j render 'establishments/card_index', establishment: @establishment %>";
+if (favoritePage) {
+  establishmentCard.remove();
+} else {
+  establishmentCard.innerHTML = "<%= j render 'establishments/card_index', establishment: @establishment %>";
+}

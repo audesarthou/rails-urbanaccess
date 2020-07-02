@@ -38,6 +38,8 @@ function unsplash(){
   splash.click();
 }
 
-setTimeout(unsplash, 4000);
+if (splash) {
+  setTimeout(unsplash, 4000);
+}
 
-import "controllers"
+// import "controllers"
