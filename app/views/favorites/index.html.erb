@@ -2,7 +2,7 @@
 
   <div class="banner-favorites" style="background-image: url(<%= image_path('fond_favorites.jpg') %>);">
     <div class="container">
-      <h1>Mes favoris</h1>
+      <h1 id="favorite">Mes favoris</h1>
     </div>
   </div>
 
@@ -10,9 +10,11 @@
     <p>Retrouver tous mes favoris<br> en un seul clic !</p>
   </div>
 
-  <div class="container mt-2">
+  <div class="container">
     <% @favorites.each do |favorite| %>
-      <%= render 'establishments/card_index', establishment: favorite.establishment %>
+      <div id="establishment-<%= favorite.establishment.id %>" class="margecard">
+        <%= render 'establishments/card_index', establishment: favorite.establishment %>
+      </div>
     <% end %>
   </div>
 
