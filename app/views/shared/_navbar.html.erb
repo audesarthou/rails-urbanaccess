@@ -44,7 +44,10 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="far fa-heart"></i>Mes favoris</a>
+        <%= link_to favorites_path, class: "nav-link" do %>
+         <i class="far fa-heart", style= "color: #118AB2"></i> Mes Favoris
+      <% end %>
+      </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
