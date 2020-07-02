@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   object-fit: cover;
+  justify-content: space-between;
   }
   h2 {
   font-size: 20px;
@@ -28,6 +29,11 @@
   color: $dark-blue;
   font-weight: 500;
   }
+
+.card-product a {
+  display: flex;
+  align-items: center;
+}
 
 .card-product-infos {
   padding: 16px;

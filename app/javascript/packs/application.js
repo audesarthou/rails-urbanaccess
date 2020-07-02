@@ -39,3 +39,5 @@ function unsplash(){
 }
 
 setTimeout(unsplash, 4000);
+
+import "controllers"
