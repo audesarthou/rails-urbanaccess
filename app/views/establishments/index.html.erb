@@ -46,7 +46,7 @@
             <% if establishment.access_average >= 4 %>
              <% color = "green" %>
             <% elsif establishment.access_average >= 3%>
-              <% color = "orange" %>
+              <% color = "#f77f00" %>
             <% else %>
               <% color = "red" %>
             <% end %>
@@ -54,7 +54,7 @@
           <% end %>
         <div class="card-product-icons like d-block d-flex flex-column">
           <i class="far fa-heart pl-1"></i>
-          <%= image_tag "picto_handi.svg", class: "handi_icon", style: " border: 3px solid #{color}; border-radius: 50%" %>
+          <%= image_tag "picto_handi_white.svg", class: "handi_icon", style: "background-color: #{color}; border-radius: 50%" %>
           <p> <%= establishment.access_average%></p>
         </div>
       </div>
