@@ -105,4 +105,5 @@ class EstablishmentsController < ApplicationController
       @service_average = service_ratings.sum / service_ratings.count
     end
   end
+
 end
