@@ -1,0 +1,19 @@
+<div class="wrapper">
+
+  <div class="banner-favorites" style="background-image: url(<%= image_path('fond_favorites.jpg') %>);">
+    <div class="container">
+      <h1>Mes favoris</h1>
+    </div>
+  </div>
+
+  <div class="blue-block-favorites mt-4">
+    <p>Retrouver tous mes favoris<br> en un seul clic !</p>
+  </div>
+
+  <div class="container mt-2">
+    <% @favorites.each do |favorite| %>
+      <%= link_to favorites_path(favorite) %>
+    <% end %>
+  </div>
+
+</div>
