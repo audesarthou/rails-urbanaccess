@@ -42,8 +42,8 @@
       <% else %>
         <%= link_to establishment_favorites_path(establishment), method: :post, remote: true do %>
           <i class="far fa-heart pl-1"></i>
+        <% end %>
       <% end %>
-  <% end %>
       <%= image_tag "picto_handi_white.svg", class: "handi_icon", style: "background-color: #{color}; border-radius: 50%" %>
       <p> <%= establishment.access_average%></p>
     </div>

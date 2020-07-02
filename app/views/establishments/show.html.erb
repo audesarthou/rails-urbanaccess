@@ -18,8 +18,15 @@
           <% end %>
         </div>
         <div class="d-flex pictures icon-heart mr-2 mt-2">
-          <i class="far fa-heart"></i>
-          <!-- <i class="fas fa-heart"></i> -->
+          <% if current_user.favorites.find_by(establishment: @establishment) %>
+            <%= link_to favorite_path(current_user.favorites.find_by(establishment: @establishment)), method: :delete, remote: true do %>
+              <i class="fas fa-heart"></i>
+             <% end %>
+          <% else %>
+            <%= link_to establishment_favorites_path(@establishment), method: :post, remote: true do %>
+              <i class="far fa-heart"></i>
+             <% end %>
+          <% end %>
         </div>
       </div>
 
