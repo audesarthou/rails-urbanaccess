@@ -12,7 +12,7 @@
 
   <div class="container mt-2">
     <% @favorites.each do |favorite| %>
-      <%= link_to favorites_path(favorite) %>
+      <%= render 'establishments/card_index', establishment: favorite.establishment %>
     <% end %>
   </div>
 
