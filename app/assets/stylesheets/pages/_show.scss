@@ -18,11 +18,15 @@
 }
 .icon-heart {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  right: 5px;
-  top: 5px;
+  width: 35px;
+  height: 35px;
+  right: 2px;
+  top: 2px;
+  background-color: white;
+  font-style: white;
+  border-radius: 50%;
 }
+
 .img-left {
   display: flex;
   flex-wrap: wrap;

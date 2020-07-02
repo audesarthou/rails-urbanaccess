@@ -17,7 +17,10 @@
             <%= image_tag "loco_by_jems_3.jpg", alt: "alttext", class: "", height: "80px" %>
           <% end %>
         </div>
-        <%= image_tag "Icon/heart.svg", alt: "alttext", class: "icon-heart" %>
+        <div class="d-flex pictures icon-heart mr-2 mt-2">
+          <i class="far fa-heart"></i>
+          <!-- <i class="fas fa-heart"></i> -->
+        </div>
       </div>
 
       <div class="card-show_content">
@@ -47,13 +50,13 @@
               <% if @access_average >= 4 %>
                <% color = "green" %>
               <% elsif @access_average >= 3%>
-                <% color = "orange" %>
+                <% color = "#f77f00" %>
               <% else %>
                 <% color = "red" %>
               <% end %>
 
             <% end %>
-            <%= image_tag "picto_handi.svg", alt: "alttext", style: "border: 3px solid #{color};" %>
+            <%= image_tag "picto_handi_white.svg", alt: "alttext", style: "background-color: #{color};" %>
             <span><%= @access_average ? @access_average : "-" %> / 5 </span>
 
           </div>

@@ -5,7 +5,6 @@
       <% @categories.each do |category| %>
           <%= link_to category.capitalize, filter: category %>
       <% end %>
-
     </div>
   </div>
 
@@ -16,57 +15,9 @@
 
   <div class="container mt-2">
   <% @establishments.each do |establishment| %>
-    <%= link_to establishment_path(establishment) do %>
-     <div class="card-product mb-2">
-      <% if establishment.photos.attached? %>
-        <%= cl_image_tag establishment.photos.first.key, height: 100, width: 141, crop: :fill %>
-      <% else %>
-        <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/ec/c0/8c/getlstd-property-photo.jpg" class="p-1" />
-      <% end %>
-
-        <div class="card-product-infos">
-          <h3><%= establishment.name %></h3>
-          <span class="blue-line"></span>
-          <div class="card-product-top-infos">
-            <ul class="rounded-circle list-inline">
-              <% unless establishment.service_average.nil? %>
-                <% count = 0 %>
-                <% while count < establishment.service_average %>
-                  <li><i class="fas fa-circle pl-0"></i></li>
-                  <% count += 1 %>
-                <% end %>
-              <% end %>
-
-              <p><%= establishment.reviews.count %> avis</p>
-            </ul>
-          </div>
-        </div>
-        <% color = "#128AB2" %>
-        <% unless establishment.access_average.nil? %>
-          <% if establishment.access_average >= 4 %>
-           <% color = "green" %>
-          <% elsif establishment.access_average >= 3%>
-            <% color = "orange" %>
-          <% else %>
-            <% color = "red" %>
-          <% end %>
-        <% end %>
-
-        <div class="card-product-icons like d-block d-flex flex-column">
-          <% if current_user.establishments.include?(establishment) %>
-            <p>test</p>
-          <% else %>
-            <%= link_to establishment_favorites_path(establishment), method: :post do %>
-              <i class="far fa-heart pl-1"></i>
-            <% end %>
-          <% end %>
-
-
-          <%= image_tag "picto_handi.svg", class: "handi_icon", style: " border: 3px solid #{color}; border-radius: 50%" %>
-          <p> <%= establishment.access_average%></p>
-        </div>
-      </div>
-    <% end %>
+    <div id="establishment-<%= establishment.id %>">
+      <%= render 'card_index', establishment: establishment %>
+    </div>
   <% end %>
 
   </div>
