@@ -1,0 +1,32 @@
+.banner-favorites {
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  height: 100px;
+}
+
+.banner-favorites h1 {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  text-align: center;
+  opacity: 0.95;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+}
+
+.blue-block-favorites {
+  background-color: $blue;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: white;
+    margin: 25px;
+    font-size: 16px;
+    margin-top: 26px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+
+  }
+}

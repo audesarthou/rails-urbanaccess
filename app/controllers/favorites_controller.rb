@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
   def index
+    @favorites = current_user.favorites
   end
 
   def create
@@ -10,7 +11,6 @@ class FavoritesController < ApplicationController
       format.html { redirect_to establishments_path }
       format.js
     end
-
   end
 
   def destroy
